@@ -17,7 +17,8 @@ public class MaxSumIncreasingSUbsequence {
 		for(int i=1; i<a.length; i++) {
 			for(int j=0; j<i;j++) {
 				if(a[j]<a[i]) {
-					T[i]=Math.max(T[j]+a[i],T[i]);
+					T[i]
+							=Math.max(T[j]+a[i],T[i]);
 				}
 			}
 		}

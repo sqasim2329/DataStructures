@@ -5,6 +5,7 @@ import java.util.Comparator;
 
 public class Anagram {
 	
+	
 	static class Aangram{
 		int index;
 		String str;

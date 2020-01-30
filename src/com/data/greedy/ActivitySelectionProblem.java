@@ -36,7 +36,7 @@ public class ActivitySelectionProblem {
 			int length = arr.length;
 			int previousFinish = arr[0][1];
 			for(int i =1; i <= length-1; i++ ) {
-				if(previousFinish < arr[i][0]) {
+				if(previousFinish <= arr[i][0]) {
 					printStartAndFinish(arr[i][0], arr[i][1]);
 					previousFinish = arr[i][1];
 				}

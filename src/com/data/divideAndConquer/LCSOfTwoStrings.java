@@ -20,7 +20,7 @@ public class LCSOfTwoStrings {
 		x =1 + findLCSofTheStrings(s1,s2,i+1,j+1);
 		int y = findLCSofTheStrings(s1,s2,i+1,j);
 		int z = findLCSofTheStrings(s1,s2,i,j+1);
-		
+		    
 		int max1 = Math.max(x, y);
 		return Math.max(max1, z);
 		

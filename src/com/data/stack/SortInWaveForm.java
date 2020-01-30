@@ -18,6 +18,9 @@ public class SortInWaveForm {
 		}
 		}
 		
+		//O(n) solution look
+		
+		
 	
 
 }

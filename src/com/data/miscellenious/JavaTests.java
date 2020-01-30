@@ -9,14 +9,14 @@ import java.util.Map.Entry;
 
 
 class SuperClass{
-	public void method() throws IOException {
+	public void method()  {
 		
 	}
 }
 
 class SubClass extends SuperClass{
 @Override	
-public void method(){
+public void method() {
 		
 	}
 }

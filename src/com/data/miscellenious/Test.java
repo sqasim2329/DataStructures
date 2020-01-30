@@ -7,8 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+//@FunctionalInterface
+//interface myIntereface{
+//	void myMethod();
+//	void myM();
+//}
 public class Test<T> {
-	static T t;
+//	static T t;
 	
 	static <V> void method1(V v) {
 		System.out.println(v);
@@ -67,9 +72,28 @@ public class Test<T> {
 	}
 	
 	public static<T> void myMethod(Map<String,T> map) {
-		System.out.println("1");
-		List<B> ls=new ArrayList<>();
-		method(ls);
+//		System.out.println("1");
+//		List<B> ls=new ArrayList<>();
+//		method(ls);
+		
+		List<String> names = new ArrayList<>();
+        
+		names.add("David");
+		         
+		names.add("Johnson");
+		         
+		names.add("Samontika");
+		         
+		names.add("Brijesh");
+		         
+		names.add("John");
+		
+		names.stream().filter((String name)->name.startsWith("D")).collect(collector)
+		final Integer a=10;
+		final Integer b=20;
+		Comparator<Integer> comp=(A,B)->A.compareTo(B)*a;
+		
+		
 		
 	}
 	
@@ -120,27 +144,27 @@ public class Test<T> {
 			  return 10;
 		  }
 	}
-	public static void main(String [] args)
-	{
-	  Point pnt1 = new Point(0,0);
-	  Point pnt2 = new Point(0,0);
-	  int arr[]= {0,1,2,0,1,2};
-	  System.out.println("X: " + pnt1.x + " Y: " +pnt1.y); 
-	  System.out.println("X: " + pnt2.x + " Y: " +pnt2.y);
-	  System.out.println(" ");
-	  tricky(pnt1,pnt2);
-	  System.out.println("X: " + pnt1.x + " Y:" + pnt1.y); 
-	  System.out.println("X: " + pnt2.x + " Y: " +pnt2.y);  
-	 
-	  Comparator<Integer> c=(a,b)-> a.compareTo(b);
-	  Arrays.sort(arr);
-	  IntStream intStream=Arrays.stream(arr);
-	  intStream.forEach(System.out::println);
-	  int n=mymethod();
-	  System.out.println(n);
-	  System.out.println(method());
-	  
-	  
-	}
+//	public static void main(String [] args)
+//	{
+//	  Point pnt1 = new Point(0,0);
+//	  Point pnt2 = new Point(0,0);
+//	  int arr[]= {0,1,2,0,1,2};
+//	  System.out.println("X: " + pnt1.x + " Y: " +pnt1.y); 
+//	  System.out.println("X: " + pnt2.x + " Y: " +pnt2.y);
+//	  System.out.println(" ");
+//	  tricky(pnt1,pnt2);
+//	  System.out.println("X: " + pnt1.x + " Y:" + pnt1.y); 
+//	  System.out.println("X: " + pnt2.x + " Y: " +pnt2.y);  
+//	 
+//	  Comparator<Integer> c=(a,b)-> a.compareTo(b);
+//	  Arrays.sort(arr);
+//	  IntStream intStream=Arrays.stream(arr);
+//	  intStream.forEach(System.out::println);
+//	  int n=mymethod();
+//	  System.out.println(n);
+//	  System.out.println(method());
+//	  
+//	  
+//	}
 	
 }

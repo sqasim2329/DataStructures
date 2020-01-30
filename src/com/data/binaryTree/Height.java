@@ -2,6 +2,16 @@ package com.data.binaryTree;
 
 public class Height {
 	
+//	https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/
+//	https://www.geeksforgeeks.org/decode-string-recursively-encoded-count-followed-substring/
+//	https://www.geeksforgeeks.org/compute-average-two-numbers-without-overflow/
+//	https://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/
+//	https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
+//		https://www.geeksforgeeks.org/sorted-array-to-balanced-bst/
+//	https://www.geeksforgeeks.org/sorted-linked-list-to-balanced-bst/
+//	https://www.geeksforgeeks.org/find-two-rectangles-overlap/
+//	https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
+//	https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/
 	public static void main(String args[]) {
 		Node root = new Node(1); 
         root.left = new Node(2); 

@@ -20,7 +20,7 @@ public class MinCostToReachEndOf2DArr {
 		
 		for(int i =1 ; i <= arr.length; i++)
 			dp[i][0] = Integer.MAX_VALUE; // cannot store in dp[i][-1] array index exception
-		for(int j=1; j <= arr[0].length; j+r+)
+		for(int j=1; j <= arr[0].length; j++)
 			dp[0][j] = Integer.MAX_VALUE;
 		
 		dp[0][1] = 0;

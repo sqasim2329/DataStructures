@@ -14,7 +14,9 @@ public class Longestincreasingsubsequence {
 //			}
 //		}
 		int T[]=new int[arr.length];
-		Arrays.fill(T, 1);
+		for(int i=0;i<arr.length;i++) {
+			T[i]=arr[i];
+		}
 		for(int i=1; i<arr.length; i++) {
 			for(int j=0;j<i;j++) {
 				if(arr[i]>arr[j]) {

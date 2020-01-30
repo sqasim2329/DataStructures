@@ -1,6 +1,12 @@
 package Algos;
 //largest word in dictionary by deleting some characters of given string
+///maximum-difference-between-two-elements/
+//middle of a given linked list in C and Java
 public class Dictionary1 {
+	
+	Dictionary1(){
+		
+	}
 	
 	public static void main(String args[]) {
 		

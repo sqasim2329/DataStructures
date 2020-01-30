@@ -16,6 +16,10 @@ public class HouseTheif {
 		int skipCurrentHouseStealth = getMaxStealth(arr,index+1);
 		return Math.max(currentHouseStealth, skipCurrentHouseStealth);
 	}
+	
+	
+	
+	
 
 
 
