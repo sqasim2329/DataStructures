@@ -1,5 +1,5 @@
 package com.data.heap;
-
+//https://www.techiedelight.com/convert-max-heap-min-heap-linear-time/same as below question
 public class HeapSortMain {
 	
 	public static void main(String args[]) {

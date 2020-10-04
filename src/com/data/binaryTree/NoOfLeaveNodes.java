@@ -11,19 +11,18 @@ public class NoOfLeaveNodes {
         root.right.left = new Node(6); 
         root.right.right = new Node(6);
         
-        int n = findCountOfLeafNodes(root);
+        int n = countLeaves(root);
         System.out.println(n);
 	}
 
-	private static int findCountOfLeafNodes(Node root) {
-		if(root == null)
-		return 0;
-		
-		int cl = findCountOfLeafNodes(root.left);
-		if(root.left==null && root.right == null)
-			return 1;
-		int cr = findCountOfLeafNodes(root.right);
-		return cl+cr;
+	private static int countLeaves(Node node) {
+		 if(node == null)
+	         return 0;
+	         
+	         if(node.left==null && node.right==null)
+	         return 1;
+	         
+	         return countLeaves(node.left)+countLeaves(node.right);
 		
 	}
 

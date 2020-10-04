@@ -70,5 +70,33 @@ public class VerticalOrderTraversal {
 		
 		
 	}
+	
+	//O(1) using dfs
+	static ArrayList <Integer> verticalOrder(Node root)
+    {   
+        Map<Integer,ArrayList<Integer>> map = new TreeMap<>();
+        solve(map,root,0);
+        ArrayList<Integer> arrLs = new ArrayList<>();
+        for(List<Integer> ls:map.values()){
+            arrLs.addAll(ls);
+        }
+        return arrLs;
+    }
+    
+    private static void solve(Map<Integer,ArrayList<Integer>> m,Node  root, int hd){
+        if(root == null)
+        return;
+        
+        if(m.containsKey(hd)){
+            m.get(hd).add(root.data);
+        }else{
+            ArrayList<Integer> ls = new ArrayList<>();
+            ls.add(root.data);
+            m.put(hd,ls);
+        }
+        
+        solve(m,root.left,hd-1);
+        solve(m,root.right,hd+1);
+    }
 
 }

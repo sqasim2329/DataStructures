@@ -1,5 +1,11 @@
 package com.data.binaryTree;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
 public class PairsInBST {
 	
 	/**
@@ -28,6 +34,37 @@ public class PairsInBST {
 	        set.add(k-root.val);
 	        return checkIfPairExists(root.left,k,set) + checkIfPairExists(root.right,k,set); 
 	    }
+	}
+	
+	
+	private int countpairGreaterThanK(TreeNode root, int k) {
+		List<Integer> ls = new ArrayList<>();
+		inorder(root,ls);
+		int pairs =0;
+		int i=0, j=ls.size()-1;
+		while(i < j) {
+			if(ls.get(i)+ls.get(j)>k) {
+				pairs+=j-i;
+				for(int m=i;m<j;m++)
+				System.out.println(ls.get(m)+"---"+ls.get(j));//if need to print
+				j--;
+			}else {
+				i++;
+			}
+		}
+		
+		return pairs;
+	
+	}
+
+
+	private void inorder(TreeNode root, List<Integer> ls) {
+		if(root == null)
+			return ;
+		
+		inorder(root.left,ls);
+		ls.add(root.val);
+		inorder(root.right,ls);
 	}
 
 }

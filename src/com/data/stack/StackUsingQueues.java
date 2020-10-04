@@ -33,6 +33,27 @@ public class StackUsingQueues {
 		 System.out.println(stk.removeFromStack());
 		 System.out.println(stk.removeFromStack());
 	 }
+	 //using one queue
+	 private void push(int ele) {
+		 q1.add(ele);
+		 int size = q1.size();
+		 while(size > 1) {
+			 q1.add(q1.remove());// moving elem at front to back except last ele
+			 size--;
+		 }
+	 }
+	 
+	 private int poll() {
+		 return q1.poll();
+	 }
+	 
+	 private int peek() {
+		return q1.peek();
+	 }
+	 
+	 private boolean isEmpty() {
+		return q1.isEmpty();
+	 }
 	 
 
 }

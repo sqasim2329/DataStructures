@@ -14,7 +14,7 @@ public class LCAofBST {
         Node node = findLCA(root,n1,n2);
         System.out.println(node!=null?node.data:-1);
 	}
-
+//O(N) TC and O(N)SC --> recursive stack
 	private static Node findLCA(Node root,int n1, int n2) {
 		if(root == null)
 		return null;
@@ -27,5 +27,25 @@ public class LCAofBST {
 		else
 			return root;
 	}
+	
+	//O(N)TC and O(1)SC
+	private static Node findLCAItr(Node root,int n1, int n2) {
+		while(root!=null) {
+			if(root.data < n1 && root.data < n2) {
+				root = root.right;
+			}
+			else if(root.data > n1 && root.data > n2) {
+				root = root.left;
+			}else {
+				return root;
+			}
+		}
+		
+		return null;
+	}
+
+	
+	
+	
 
 }

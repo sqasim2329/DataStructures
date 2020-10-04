@@ -6,7 +6,7 @@ public class LongestCommonSubstringOftwoString {
 		String s1="abcde";
 		String s2="bcd";
 		
-		System.out.println(lcs(s1,s2,0,0));
+		System.out.println(dp(s1,s2));
 	}
 
 	private static int lcs(String s1, String s2, int i, int j) {
@@ -23,6 +23,22 @@ public class LongestCommonSubstringOftwoString {
 		int y=lcs(s1,s2,i+1,j);
 		int z=lcs(s1,s2,i,j+1);
 		return Math.max(x,Math.max(y, z));
+	}
+	
+	
+	private static int dp(String s1,String s2) {
+		int n = s1.length();
+		int m =s2.length();
+		int dp[][] = new int [n+1][m+1];
+		int max = Integer.MIN_VALUE;
+		for(int i=1;i<=n;i++) {
+			for(int j=1;j<=m;j++) {
+				if(s1.charAt(i-1)==s2.charAt(j-1))
+					max = Math.max(max, dp[i][j]=1+dp[i-1][j-1]);
+			}
+		}
+		
+		return max;
 	}
 
 }

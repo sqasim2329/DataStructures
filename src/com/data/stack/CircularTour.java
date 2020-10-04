@@ -2,7 +2,7 @@
 
 import java.util.LinkedList;
 import java.util.Queue;
-
+//https://leetcode.com/problems/gas-station/submissions/
 public class CircularTour {
 
 	
@@ -30,7 +30,12 @@ public class CircularTour {
 		 PetrolPump k = new PetrolPump(90, 66);
 		 PetrolPump l = new PetrolPump(20, 45);
 		 PetrolPump m = new PetrolPump(30, 41);PetrolPump[] p = {a,b,c,d,e,f,g,h,i,j,k,l,m};
-		findStartingIndexToCompletedCircularTour(p);
+//		findStartingIndexToCompletedCircularTour(p);
+//		 int petrol[]= {96,46,68,65,51,9,79,85};
+//		 int distance[]= {25,83,15,35,44,88,77,89};
+		 int []petrol = {4,6,7,4};
+		 int []distance = {6,5,3,5};
+		 System.out.println(canCompleteCircuit(petrol,distance));
 		
 	}
 
@@ -55,5 +60,35 @@ public class CircularTour {
 		}
 		System.out.println("start:"+start);
 	  }
-	}
-		
+	
+
+	
+public static int canCompleteCircuit(int[] gas, int[] cost) {
+        
+        int sumG = 0;
+        int sumC = 0;
+        int start = 0;
+        int tank =0;
+        for(int i=0;i<gas.length;i++){
+            sumG += gas[i];
+            sumC += cost[i];
+            tank +=gas[i]-cost[i];
+            if(tank < 0){
+                start = i+1;
+                tank =0;
+            }
+        }
+        
+        if(sumG < sumC)
+            return -1;
+        else
+            return start;
+        
+    }
+
+}
+
+
+//At any point if tank is empty then start point will be next;
+//if Sum of gas < sum of cost then in no way it is possible to reach
+

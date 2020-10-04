@@ -13,24 +13,29 @@ public class MinCostToReachEndOf2DArr {
 	int col = arr[0].length-1;
 	System.out.println(findMinCost(arr));
 	}
-
-	private static int findMinCost(int[][] arr) {
-		// TODO Auto-generated method stub
-		int[][] dp = new int[arr.length+1][arr[0].length+1];
-		
-		for(int i =1 ; i <= arr.length; i++)
-			dp[i][0] = Integer.MAX_VALUE; // cannot store in dp[i][-1] array index exception
-		for(int j=1; j <= arr[0].length; j++)
-			dp[0][j] = Integer.MAX_VALUE;
-		
-		dp[0][1] = 0;
-		for(int i =1 ; i <= arr.length; i++) {
-			for(int j=1; j <= arr[0].length; j++) {
-				dp[i][j] = Math.min(dp[i-1][j], dp[i][j-1])+arr[i-1][j-1];
+//horizontal,diagonally,vertically
+	private static int findMinCost(int[][] nums) {
+		int m= nums.length;
+		int n= nums.length;
+		int dp[][] = new int [m][n];
+		for(int i=0;i<m;i++) {
+			for(int j=0;j<n;j++) {
+				if(i==0 && j==0)
+					dp[i][j]=nums[i][j];
+				else if(i==0 && j> 0)
+					dp[i][j]+=dp[i][j-1]+nums[i][j];
+				else if(i>0 && j==0)
+					dp[i][j]+=dp[i-1][j]+nums[i][j];
+				else
+					dp[i][j]=nums[i][j]+Math.min(Math.min(dp[i-1][j], dp[i][j-1]),dp[i-1][j-1]);
 				
 			}
 		}
-		return dp[arr.length][arr[0].length];
+		return dp[m-1][n-1];
+		
 		
 	}
 }
+
+
+//check https://www.geeksforgeeks.org/min-cost-path-dp-6/ for different conditions

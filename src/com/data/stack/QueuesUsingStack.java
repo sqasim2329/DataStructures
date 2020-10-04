@@ -41,5 +41,27 @@ public class QueuesUsingStack {
 		System.out.println(q.deqeue());
 		System.out.println(q.deqeue());
 	}
+	
+	//better solution
+	private void push(int x) {
+		stk1.push(x);
+	}
+	
+	private int pop() {
+		if(stk2.isEmpty()) {
+			while(!stk1.isEmpty()) {
+				stk2.push(stk1.pop());
+			}
+		}
+		return stk2.pop();
+	}
+	
+	private int peek() {
+		return stk2.peek();
+	}
+	
+	private boolean isEmpty() {
+		return stk1.isEmpty() && stk2.isEmpty();
+	}
 
 }

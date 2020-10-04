@@ -15,7 +15,7 @@ public class MinCostToReachEndOf2DArray {
 		int col = arr[0].length-1;
 		System.out.println(findMinCost(arr,row, col));
 	}
-
+//horizontally , vertically
 	private static int findMinCost(int[][] arr, int i, int j) {
 		if(i == -1 || j == -1)
 			return Integer.MAX_VALUE;
@@ -32,5 +32,6 @@ public class MinCostToReachEndOf2DArray {
 		return min+currentCost;
 		
 	}
+	
 
 }

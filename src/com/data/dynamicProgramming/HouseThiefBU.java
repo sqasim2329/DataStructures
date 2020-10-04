@@ -4,7 +4,7 @@ public class HouseThiefBU {
 	
 	public static void main(String args[]) {
 		int arr[] = {6,7,1,30,2,4};
-		System.out.println(getMaxStealth(arr,0));
+		System.out.println(dp(arr));
 		
 	}
 
@@ -18,5 +18,20 @@ public class HouseThiefBU {
 		
 		return dp[0];
 	}
+	
+	
+	private static int dp(int[] arr) {
+		int arrr []= {2,7,9,3,1};
+		arr =arrr;
+		int n= arr.length;
+		int dp[]= new int [n];
+		dp[0]=arr[0];
+		dp[1]=arr[1];
+		for(int i=2;i<n;i++) {
+			dp[i]=Math.max(dp[i-1], dp[i-2]+arr[i]);
+		}
+		return dp[n-1];
+	}
+	
 
 }

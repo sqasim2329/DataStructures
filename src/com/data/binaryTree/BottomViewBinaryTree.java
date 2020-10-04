@@ -11,6 +11,7 @@ import java.util.TreeMap;
 
 
 
+
 public class BottomViewBinaryTree {
 	
 	static class Node{
@@ -18,6 +19,7 @@ public class BottomViewBinaryTree {
 		Node left;
 		Node right;
 		int hd;
+		int h;
 		
 		Node(int data){
 			this.data = data;
@@ -36,7 +38,29 @@ public class BottomViewBinaryTree {
 	    root.left.right.right = new Node(14);
 	    Map<Integer, Integer> map = new HashMap<>();
 	    printbottomView(root);
+	    Map<Integer, Node> m = new HashMap<>();
+	    printBottomView(root,0,0,m);
+	    m.entrySet().stream().forEach(System.out::println);
 	    
+	}
+
+	private static void printBottomView(Node root, int h, int hd, Map<Integer, Node> map) {
+		if(root == null)
+			return ;
+		root.hd = hd;
+		root.h = h;
+		if(map.containsKey(hd)) {
+			Node existingNode = map.get(hd);
+			if(existingNode.h <= root.h) {
+				map.put(hd, root);
+			}
+		}else {
+			map.put(hd, root);
+		}
+		
+		printBottomView(root.left,h+1,hd-1,map);
+		printBottomView(root.right,h+1,hd+1,map);
+		
 	}
 
 	private static void printbottomView(Node root) {

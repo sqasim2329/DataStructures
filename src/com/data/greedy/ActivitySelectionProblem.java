@@ -69,3 +69,21 @@ public class ActivitySelectionProblem {
 
 }
 //can be easily using stack
+//https://www.geeksforgeeks.org/find-minimum-maximum-amount-buy-n-candies/
+
+class solution{
+	
+	
+	public void minMaxMoney{
+		int nums[]= {3, 2, 1, 4};
+		Arrays.sort(nums);
+		int k=2;
+		int minMoney=0;
+		int maxMoney =0;
+		for(int i=0;i<nums.length-k;i++) {
+			minMoney+=nums[i];
+			maxMoney+=nums[nums.length-i];	
+		}
+		System.out.println(minMoney+"--"+maxMoney);
+	}
+}

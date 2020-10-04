@@ -22,7 +22,7 @@ public class ZeroOneKnapsackBU {
 		}
 		
 		for (int i = 0; i <= capacity; i++) {// Insert 0 in last row as it is dummy column to avoid array index issues
-			dp[profits.length+1 - 1][i] = 0;
+			dp[profits.length][i] = 0;
 		}
 
 		

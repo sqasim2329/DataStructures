@@ -14,10 +14,9 @@ public class NextLargerElement {
 		// TODO Auto-generated method stub
 		
 		Stack<Integer> stk = new Stack<>();
-		stk.push(arr[0]);
-		for(int i=1; i<= arr.length-1 ; i++) {
-			if(i >= arr.length )
-				break;
+		for(int i=0; i< arr.length ; i++) {
+//			if(i >= arr.length )
+//				break;
 			int next = arr[i];
 			while(!stk.isEmpty() && stk.peek() < next) {
 					System.out.println(stk.peek()+" next greater element is :"+next);

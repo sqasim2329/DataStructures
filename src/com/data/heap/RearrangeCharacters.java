@@ -35,18 +35,18 @@ public class RearrangeCharacters {
 		StringBuffer rearranged = new StringBuffer();
 		PriorityQueue<CharFreq> pq = new PriorityQueue<>(256,Collections.reverseOrder());
 		int n = s.length();
-		int[] freqHistogram = new int[256];
+		int[] freqHistogram = new int[26];
 		
 		for(char c:s.toCharArray()) {
-			freqHistogram[c]++;
-			if(freqHistogram[c] > (n+1)/2) {// if a charcter a present in string more than half of the string adjacent less string cannot be fo
+			freqHistogram[c-'a']++;
+			if(freqHistogram[c-'a'] > (n+1)/2) {// if a charcter a present in string more than half of the string adjacent less string cannot be fo
 				return s;
 			}
 		}
 		
-		for(char i= 0; i<256; i++) {
+		for(char i= 0; i<26; i++) {
 			if(freqHistogram[i] > 0) {
-				pq.add(new CharFreq(i,freqHistogram[i] ));
+				pq.add(new CharFreq((char)(i+'a'),freqHistogram[i]));
 			}
 		}
 		

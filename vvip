@@ -1,0 +1,212 @@
+Stacks
+infix-to-prefix-conversion-using-two-stacks
+Remove unnecessary brackets from expression
+ex: input (a+b)+((c+d)) and output should be (a+b)+(c+d).
+Minimum time to rot all oranges.
+A big problem statement, it was very similar to Rotten Oranges Problem. Instead of orange, there was a file that needs to be transferred across all systems represented in the matrix.
+
+LinkedList -- 2nd
+ nth-node-from-the-end-of-a-linked-list
+ swap-kth-node-from-beginning-with-kth-node-from-end-in-a-linked-list
+ 
+ String
+ Find the longest sub string length which is in Alphabetical order.
+ex: input “cfaxy” and output should be 3(axy).
+You need to find out the longest subsequence of a string from a given string such that the absolute difference between two alternating characters of the subsequence is less than K.
+iven two strings containing a special character ‘#’ which represents a backspace, you need to print true if both the strings will be equal after processing the backspaces.
+
+hashmap
+https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
+ 
+ 
+ Arrays
+ Q1. Given a matrix each entry in box is an integer. find row having maximum sum. -- need to find which problem
+ Q2. Given a dice having m faces each numbered from 1…to ..m, the dice rolled n times. then find in how many ways a particular target sum T can be generated since ans is large we have to answer using modulo 1e9+7.
+ Given a one dimension array find two elements such difference b/w them is minimum.-- done
+ Q3.Expanded question to two sorted array then to k sorted array -- done with but need to do O(1)
+ https://practice.geeksforgeeks.org/problems/sum-equals-to-sum/0--done
+ https://practice.geeksforgeeks.org/problems/trapping-rain-water/0
+ https://practice.geeksforgeeks.org/problems/next-greater-even-number/0
+ Find a missing number in range of 1 to n.--n(n+1)/2-Sum(1...n)--done
+ Given a set of numbers, you need to find out the number of ways you can divide the set into two groups such that no two groups are left empty. -- r=n/2 people in each grp , hence nCr*(n-r)Cr--done//https://doubleroot.in/lessons/permutations-combinations/division-into-groups-1/
+ Given a staircase and you can take either 2 jumps and or 1 jump at a time you need to find out the number of ways you can reach to n-th stairs. --done
+ Follow up: there are some stairs which are broken and you cannot jump ahead from those broken stairs. 
+ https://www.geeksforgeeks.org/find-number-of-islands/
+ https://www.geeksforgeeks.org/find-maximum-product-of-a-triplet-in-array/--tbd
+ Suppose you have an array consisting of 0 and 1. 
+ Leetcode top interview question
+ https://www.geeksforgeeks.org/window-sliding-technique/
+
+Ex – array : 00101
+
+Ans : { “0”, “0”, “00”, “0”} – 4
+ First I found the number of subarrays (of 0) in the main array. Ex – 2 in the above example. Then I applied the formula (n+1)(n)/2 on each size of subarray.
+
+
+
+ Graphs --- 1st
+You are on an infinite graph and starting from (1, 1), you can move either (x+y, y) or (x, x+y) and you need to find out whether you can reach the given point or not.--DOne
+Given a graph and you are starting from point 0, 0. You will be given commands like:
+forward 40
+right 50
+left 30
+backward 70
+You need to print your location after processing these commands.
+You have been given a grid and a starting point. You are supposed to check if you can visit all the points and return to the starting point.
+There are several equations given in terms of two variables with a ‘<‘ or ‘>’ sign between them. Ex – a > b, b > c etc. You have to answer whether there is a sequence which of the variables which will satisfy all the equations given.
+My approach : I solved it as a graph problem. All the variables were converted into the nodes of a graph. An edge between them signified the relation between them. If the directed graph did not contain a cycle, then it was possible to have an answer.
+Depth First Traversal--done
+Breadth First Traversal--done
+Detect cycle in undirected graph--done
+Detect cycle in a directed graph--done
+Topological sort--done
+Find the number of islands--done
+Implementing Dijkstra--done
+Minimum Swaps--done
+Strongly Connected Components--kosaraju algo
+Shortest Source to Destination Path-- done
+Find whether path exist
+Minimum Cost Path--done
+Circle of Strings
+Floyd Warshall--done
+Alien Dictionary--done
+Snake and Ladder Problem
+Largest Value in dorected path--done but need to do in dp
+Friend Circles
+https://leetcode.com/explore/interview/card/top-interview-questions-hard/118/trees-and-graphs/843/
+https://leetcode.com/explore/interview/card/top-interview-questions-hard/118/trees-and-graphs/847/
+https://leetcode.com/explore/interview/card/top-interview-questions-hard/118/trees-and-graphs/849/
+
+
+ Heaps
+Q4. asked to write code for heapify. little discussion on build heap complexity [ got confused and not able to clearly explain him how complexity becomes O(n)]
+
+
+Tree
+Boundary Traversal of binary tree
+Q3. Given a binary tree and a key, print all the elements in the path from the key to the root
+Given a directory tree, you need to find out kth largest file. (Expected time complexity n log k)
+Bottom view of a BT
+https://www.geeksforgeeks.org/print-nodes-at-k-distance-from-root/
+https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/discuss/37828/O(1)-space-O(n)-complexity-Iterative-Solution
+smallest common region leetcode
+Dimaeter of N ary tree 
+https://www.geeksforgeeks.org/count-pairs-from-two-bsts-whose-sum-is-equal-to-a-given-value-x/
+https://leetcode.com/problems/recover-binary-search-tree/
+
+Maths
+https://www.geeksforgeeks.org/square-root-of-a-number-without-using-sqrt-function/
+
+Importnat
+https://www.geeksforgeeks.org/design-a-data-structure-that-supports-insert-delete-search-and-getrandom-in-constant-time/
+https://www.geeksforgeeks.org/find-next-greater-number-set-digits/
+Word Ladder Problem. I was then asked to optimize queries if dictionary is constant. I cached the Graph and ran BFS for each query.
+segregate numbers within a range(0 to N) that meet some criteria. I told him the naive iterative approach to check all numbers and then discussed ways to optimize it. I solved it by backtracking to generate only the valid numbers.
+
+DP
+ https://www.geeksforgeeks.org/optimal-strategy-for-a-game-dp-31/  It was something like this with a little variation that the total number of moves were limited to a number t.
+ I gave a recursive approach and then a dynamic programming solution. The interviewer helped me to get to the final solution which was possible in O(n) time complexity and O(1) space complexity.
+ https://www.geeksforgeeks.org/palindrome-partitioning-dp-17/
+ For top-down solutions, dfs/backtracking with memorization works well.
+For bottom-up: https://www.byte-by-byte.com/dpbook/ (… though it’s very tough to implement a bottom-up DP in interviews, and no one expects you to do it also)
+https://www.geeksforgeeks.org/maximum-sum-rectangle-in-a-2d-matrix-dp-27/
+
+
+
+Design
+Design an IP Blocking system. Asked for multiple approaches along with their pros and cons
+Design a Logger.
+Design a Job Scheduler. Drawbacks of the system I designed. How to implement a recurring job? Further optimizations.
+Amazon system is already in place design or upgrades Amazon’s existing system for Amazon’s Great Indian sale.
+More Focus on Scalability, Availability, Single Point of failure, database, and low Latency
+In pom.xml we add dependencies to utilize the methods of the package, how does the compiler know which module or package it has to resolve first.
+I told him about Topological Sorting he agreed and asked me to write production-level code for the same.
+So the question was to implement the Windows OS file search feature. For example, if I type .xml the system should show all the files of type .xml and also should check recursively in subdirectories.
+The new change in the requirement was users can now filter by the size of the file.
+I gave him a solution of the N-Ary tree where each node represents a file name, type, and size. To search for a file, we perform BFS of the N-Ary tree until we reach the end. He was satisfied and asked me to code the solution
+https://www.youtube.com/channel/UCRPMAqdtSgd0Ipeef7iFsKw
+https://www.educative.io/courses/grokking-the-system-design-interview -Grokking System Design 
+A use case of B2B business where Amazon would be onboarding multiple companies in its platform. Each company has some characteristics (CompanyInfo Partner) that are used to rate them and we have “n” partners that can provide those characteristics via API. Each CompanyInfo partner returns some different sets of fields (though contributing to the same factor). Rating is used to provide additional services to the partner. Design a system where all of such partners and companies onboarding would be seamless. At any time, he should be able to query the system basis any characteristics and filters (revenue, numberOfEmployees, etc). He wanted to understand how do I generify the whole vague problem statement and ask doubts regarding the same with him. We had an exhaustive high-level discussion of microservices that I would be putting up.
+Design a feature in Google search which returns “k” most visited websites at any point in time from a log server. A log server provides a trigger whenever a particular website is visited. Low-level implementation is an extension of K most frequent elements in an array. I started off with sorting and moved to Heaps, took me time to get there after struggling. I was asked to write APIs for each operation considering this feature and all design principles that were involved in the design.
+Discussion of concepts of MicroServices, Monolithic system, Singleton pattern, Immutability.
+https://www.geeksforgeeks.org/google-interview-experience-telephonic-sde/?ref=rp
+
+
+
+Behavioral question
+tell me any situation where you completed your task under lack of information.
+Brief Introduction
+Innovative solutions you came up with in your previous company.
+Conflict with manager
+A situation where a colleague helped you out.
+How did you handle tasks with a strict deadline?
+How do you go about approaching a new task at hand?
+When was the last time when you had to compromise a requirement due to lack of time.
+Last time you couldn’t deliver on time.
+ contribution that you are proud of and made a big impact.
+A case when you had a conflict with your manager or lead regarding a design.
+A case when you messed something up and how did you handle it. How did your manager respond to this?
+Something that you learnt working closely with your manager.
+Why Amazon?
+
+
+
+
+Interview Tips
+Interview Tips:
+
+Structure your code better – make functions and reuse.
+Always use a whiteboard if given a choice between whiteboard and pen-paper!! It becomes very easy to explain your solution to the interviewer and it also opens your mind to think in many many directions (due to its vastness).
+If you have difficulty coming up with the naive solution, take a general case example and solve for it. Never take special cases for building solutions, rather keep them as condition covering for later. At this stage, don’t think about the time and space complexities, just solve it because some candidates fail to do even that, so something is better than nothing.
+Discuss time and space trade-offs after each solution you tell, even if the interviewer doesn’t ask you – it is expected to tell yourself.
+Once the solution is discussed and finalised, coding should be as quick as possible. Since it’s not that simple, we can break down the coding steps. (I write algorithmic steps in plain English each time before attempting to code) – like, make a hashmap of the given data – use queue data structure – what arguments to pass to a function – what to return – how to use the return value. This helps in two ways:
+You can easily cover the special cases and edge cases because, at this time, you’re neither thinking about the solution nor coding it, you are just planning how to code it.
+If something is not right, the interviewer can immediately point it out. So it gets fixed before you start coding the wrong solution.
+
+
+
+
+Graph--July 19
+Arrays -- July 29
+Maths -- Aug 2 --TBD
+hashing --  Aug 2
+Strings -- Aug 8
+LinkedList -- Aug 22
+Stack and queue --  Sept 5
+heap --  Sept 12
+Tree -- sept 30
+Trie -- oct 10 may be L3 for this week
+Greedy -- oct 17
+DivideConquer --
+DP -- oct 30
+backracking -- Nov 1 week
+ revise all algos in nov Month
+ System design everyday before sleep 
+ Apply for jobs in Dec end
+
+ https://www.geeksforgeeks.org/smallest-subarray-from-a-given-array-with-sum-greater-than-or-equal-to-k/--VVIP
+ https://www.geeksforgeeks.org/maximum-edge-removal-tree-make-even-forest/
+
+
+
+
+
+Given a list of available times (start, end), match the time of the day where most people can attend a meeting. Similar to Meeting Rooms II (premium)
+Decode ways -- https://www.youtube.com/watch?v=cQX3yHS0cLo
+https://www.geeksforgeeks.org/facebook-interview-questions/
+Largest rectangle in histogram---https://www.youtube.com/watch?v=qj4RcJbp03g -- also technique for unsorted arrays
+
+https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/discuss?currentPage=1&orderBy=hot&query=--done need to check answer 
+https://leetcode.com/problems/shortest-word-distance-ii/
+https://leetcode.com/problems/merge-k-sorted-lists/
+https://leetcode.com/explore/interview/card/top-interview-questions-hard/117/linked-list/839/
+https://www.geeksforgeeks.org/highway-billboard-problem/
+
+https://leetcode.com/problems/sort-list/discuss/46712/Bottom-to-up(not-recurring)-with-o(1)-space-complextity-and-o(nlgn)-time-complextity--need to debug 
+https://leetcode.com/problems/merge-k-sorted-lists/solution/--similar as merge sort
+What if the BST is modified (insert/delete operations) often and you need to find the kth smallest frequently? How would you optimize the kthSmallest routine?
+https://cheonhyangzhang.gitbooks.io/leetcode-solutions/content/271-encode-and-decode-strings.html
+https://leetcode.com/problems/contain-virus/solution/
+
+
+

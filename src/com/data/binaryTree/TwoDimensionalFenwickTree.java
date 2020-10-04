@@ -62,7 +62,7 @@ public class TwoDimensionalFenwickTree {
     {3, 3, 4, 4},
     {5, 5, 6, 6},
     {7, 7, 8, 8}};
-	
+
 	TwoDimensionalFenwickTree ft=new TwoDimensionalFenwickTree(input.length+1);
 	ft.createTree(input);
 	System.out.println(ft.query(2, 2, 4, 4));

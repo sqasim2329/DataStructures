@@ -3,7 +3,8 @@ package com.data.heap;
 public class MergeSortAlgo {
 	
 	public static void main(String args[]) {
-		int arr[]= {1, 20, 6, 4, 5};
+//		int arr[]= {1, 20, 6, 4, 5};
+		int arr[] = {1,3,5,0,2};
 		System.out.println(MergeSort(arr,0,arr.length-1));
 		for(int i =0; i < arr.length-1;i++) {
 			System.out.println(arr[i]);

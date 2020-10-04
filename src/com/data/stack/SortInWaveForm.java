@@ -6,21 +6,23 @@ import java.util.Comparator;
 public class SortInWaveForm {
 		
 		public static void main(String args[]) {
-		Integer arr[] = {10, 5, 6, 3, 2, 20, 100, 80};
-		Arrays.sort(arr);
-		for(int i=0;i<arr.length-1;i=i+2) {
-		int tmp=arr[i];
-		arr[i]=arr[i+1];
-		arr[i+1]=tmp;
-		}
-		for(int i=0;i<=arr.length-1;i++) {
-			System.out.print(arr[i]+" ");
-		}
-		}
+			int nums[]= {10, 5, 6, 3, 2, 20, 100, 80};
+			int n= nums.length;
+			for(int i=0;i<nums.length;i+=2) {
+				if(i > 0 && nums[i-1]>nums[i])
+					swap(nums,i,i-1);
+				if(i<n-1 && nums[i]<nums[i+1])
+					swap(nums,i,i+1);
+			}
+			
+			Arrays.stream(nums).forEach(System.out::println);
 		
-		//O(n) solution look
-		
-		
-	
+		}
+
+		private static void swap(int[] nums, int i, int j) {
+			int tmp = nums[i];
+			nums[i] =nums[j];
+			nums[j] = tmp;
+		}
 
 }

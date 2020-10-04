@@ -15,10 +15,33 @@ public class MinElementInSortedRotatedArray {
 				r=mid;
 			}
 		}
-		
-		System.out.println(arr[l]);
+		int nums[]= {0,3,2,1};
+		System.out.println(findMin(nums));
 		
 		
 	}
+	
+public static int findMin(int[] nums) {
+        
+        int l = 0;
+        int r = nums.length-1;
+        return nums[findMin(l,r,nums)];
+        
+        
+    }
+    
+    private static int findMin(int l,int r,int[] nums){
+       while(l<r) {
+    	   if(nums[l]<nums[r])
+    		   return nums[l];
+    	   int mid = l+(r-l)/2;
+    	   if(nums[mid]>=nums[l])
+    		   l=mid+1;
+    	   else
+    		   r=mid;
+       }
+        return nums[l];
+    }
+
 
 }
