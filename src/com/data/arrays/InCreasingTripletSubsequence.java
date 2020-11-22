@@ -20,7 +20,7 @@ public class InCreasingTripletSubsequence {
 	
 	public static void main(String args[]) {
 //		int nums[]= {1,2,3,4,5};
-		int nums[]= {1,4,3,2,1};
+		int nums[]= {1,4,3,4,1};
 		System.out.println(increasingTriplet(nums));
 	}
 

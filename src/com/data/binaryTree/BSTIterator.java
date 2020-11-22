@@ -15,7 +15,7 @@ public class BSTIterator {
 	    
 	    private void addToStack(Stack<TreeNode> stk,TreeNode root){
 	        while(root!=null){
-	                
+	               stk.push(root);
 	            root = root.left;
 	        }
 	    }

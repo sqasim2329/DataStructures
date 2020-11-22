@@ -3,7 +3,7 @@ package com.data.trie;
 public class ReplaceWords {
 	
 	public static void main(String args[]) {
-		String[] dict = {"cat", "bat", "rat","co","ca"};
+		String[] dict = {"cat", "bat", "rat","co","ca","c"};
 		String sentence = "the cattle was rattled by the battery";
 		NodeTrie root=new NodeTrie();
         

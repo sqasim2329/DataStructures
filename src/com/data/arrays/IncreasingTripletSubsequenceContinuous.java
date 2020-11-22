@@ -2,7 +2,7 @@ package com.data.arrays;
 
 public class IncreasingTripletSubsequenceContinuous {
 	
-	public static void main(String args[]) {
+	public static void main1(String args[]) {
 		int nums[] ={1,3,3,2,5};
 		int m=3;
 		int n= nums.length;
@@ -30,6 +30,28 @@ public class IncreasingTripletSubsequenceContinuous {
 			}
 		}
 		
+	}
+	
+	public static void  main(String args[]) {
+		int nums[]= {1,3,2,4,5};
+		int n= nums.length;
+		int m= 3;
+		int j=0;
+		int count =1;
+		boolean flag = false;
+		for(int i=0;i<=n-m;i++) {
+			j=i+1;
+			while( j<n && nums[j]> nums[j-1]) {
+				count++;j++;
+			}
+			if(count >= m)
+				flag=true;
+			else {
+				count=0;
+				flag=false;
+			}
+		}
+		System.out.println(flag);
 	}
 
 }

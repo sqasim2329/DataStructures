@@ -27,3 +27,4 @@ public class AllSubArraysWithSumZero {
 	}
 
 }
+//O(n),O(n)

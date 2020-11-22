@@ -7,7 +7,7 @@ public class Lengthofthelongestsubstringwithoutrepeatingcharacters {
 	
 	public static void main(String args[]) {
 		String str = "GEEKKSFORGEEKS";
-		str = "APPLE";
+//		str = "APPLE";
 		Set<Character> set= new HashSet<>();
 		int max = 0;// if non empty string, else to 0
 		

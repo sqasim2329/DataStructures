@@ -39,7 +39,7 @@ public class RelativeSorting {
 			ls.add(e.getKey());
 		}
 		
-		ls.stream().forEach(System.out::println);
+		System.out.println(ls.stream().mapToInt(i->i).toArray());
 		}
 
 }

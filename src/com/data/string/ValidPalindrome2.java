@@ -7,7 +7,7 @@ public class ValidPalindrome2 {
 	        int j =s.length()-1;
 	        while(i<=j){
 	            if(s.charAt(i)!=s.charAt(j)){
-	                return isPalindrome(i+1,j,s) || isPalindrome(i,j-1,s);
+	                return isPalindrome(i+1,j,s) || isPalindrome(i,j-1,s);//delete char from left or right
 	            }
 	            else{
 	                i++;

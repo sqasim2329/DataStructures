@@ -73,3 +73,42 @@ public class AlienDictionary {
 	}
 
 }
+//verify alien dictionary
+class Solution {
+    public boolean isAlienSorted(String[] words, String order) {
+        
+        int[] orderArr = new int[26];
+        for(int i=0;i<order.length();i++){
+            orderArr[order.charAt(i)-'a']=i;
+        }
+        
+        for(int i=0;i<words.length-1;i++){
+            String word1 = words[i];
+            String word2 = words[i+1];
+            int k=0,j=0;
+            int compare = 0;
+            while(k<word1.length() && j< word2.length()){
+                char c1 = word1.charAt(k);
+                char c2 = word2.charAt(j);
+                
+                if(c1!=c2){
+                    compare = orderArr[c1-'a'] - orderArr[c2-'a'];
+                    break;
+                }
+                k++;
+                j++;
+            }
+            
+            if(word1.length() > word2.length() && compare ==0)
+                return false;
+            else if(compare > 0)
+                return false;
+            
+            
+        }
+        
+        
+        return true;
+        
+    }
+}

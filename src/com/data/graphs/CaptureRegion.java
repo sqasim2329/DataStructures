@@ -6,20 +6,26 @@ import java.util.Set;
 public class CaptureRegion {
 	    private void solve(char[][] board) {
 	        int m = board.length;
-	        Set<Point> edge= new HashSet<>();
+	        int n = board[0].length;
+	        
 	        for(int i=0;i<m;i++){
-	            if(board[0][i]=='O')
-	                dfs(0,i,board);
-	            if(board[i][0]=='O')
+	        	if(board[i][0]=='O')
 	            	dfs(i,0,board);
-	            if(board[m-1][i]=='O')
+                if(board[i][n-1]=='O')
+	            	dfs(i,n-1,board);
+	            
+	        }
+	        
+	        for(int i=0;i<n;i++){
+	        	if(board[m-1][i]=='O')
 	            	dfs(m-1,i,board);
-	            if(board[i][m-1]=='O')
-	            	dfs(i,m-1,board);
+           
+            if(board[0][i]=='O')
+	                dfs(0,i,board);
 	        }
 	        
 	        for(int i=0;i<m;i++){
-	            for(int j=0;j<m;j++){
+	            for(int j=0;j<n;j++){
 	                if(board[i][j]=='O')
 	                    board[i][j]='X';
 	                else if(board[i][j]=='-')
@@ -28,7 +34,7 @@ public class CaptureRegion {
 	        }
 	        
 	         for(int i=0;i<m;i++){
-	            for(int j=0;j<m;j++){
+	            for(int j=0;j<n;j++){
 	                
 	                  System.out.print(board[i][j]);
 	            }
@@ -55,7 +61,8 @@ public class CaptureRegion {
 	    }
 	    
 	    public static void main(String args[]) {
-	    	char[][]board= {{'X','X','X','X'},{'X','O','O','X'},{'X','X','O','X'},{'X','O','X','X'}};
+	    	//char[][]board= {{'X','X','X','X'},{'X','O','O','X'},{'X','X','O','X'},{'X','O','X','X'}};//
+	    	char[][]board = {{'X','O','X','O','X','O'},{'O','X','O','X','O','X'},{'X','O','X','O','X','O'},{'O','X','O','X','O','X'}};
 	    	CaptureRegion c= new CaptureRegion();
 	    	c.solve(board);
 	    }

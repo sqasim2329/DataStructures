@@ -3,8 +3,8 @@ package com.data.string;
 public class LOngestSubstringInAlphabeticalorder {
 	
 	public static void main(String args[]) {
-//		String s= "zabcd";
-		String s= "abcabcdefabc";
+		String s= "zabcd";
+//		String s= "abcabcdefabc";
 		
 		int i =0;
 		int index =0;

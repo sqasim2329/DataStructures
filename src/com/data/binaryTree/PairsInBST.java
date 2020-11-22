@@ -49,7 +49,7 @@ public class PairsInBST {
 				System.out.println(ls.get(m)+"---"+ls.get(j));//if need to print
 				j--;
 			}else {
-				i++;
+				i++   ;
 			}
 		}
 		

@@ -72,7 +72,7 @@ public class SegmentTree {
 		
 		int mid = low + (high-low)/2;
 		rangeUpdate(2*ind+1, low,mid,l,r,val);
-		rangeUpdate(2*ind+2, low,mid,l,r,val);
+		rangeUpdate(2*ind+2, mid+1,high,l,r,val);
 		tree[ind] = tree[2*ind+1]+tree[2*ind+2];
 	}
 	

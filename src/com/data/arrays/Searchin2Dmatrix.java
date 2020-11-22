@@ -35,6 +35,48 @@ public class Searchin2Dmatrix {
     }
 
 }
+
+public boolean searchMatrixoptimized(int[][] matrix, int target) {
+    if(matrix.length==0 || matrix[0].length==0)
+        return false;
+    int m = matrix.length;
+    int rowToFind = -1;
+    rowToFind =binarySearchForRow(0,matrix.length-1,matrix,target);
+    
+    if(rowToFind!=-1){
+        return binarySearch(rowToFind,matrix,target);
+    }
+    return false;
+}
+
+private int binarySearchForRow(int l, int r,int[][] arr, int target){
+    int col = arr[l].length-1;
+    while(l<r && col>=0){
+        int mid = l+(r-l)/2;
+        if(arr[mid][col]<target){
+            l=mid+1;
+        }else{
+            r= mid;
+        }
+    }
+    
+    return l;
+}
+
+private boolean binarySearch(int row,int [][]mat,int target){
+    int l =0;
+    int r=mat[row].length-1;
+    while(l<r){
+        int mid = l+(r-l)/2;
+        if(mat[row][mid] < target){
+            l =mid+1;
+        }else{
+            r=mid;
+        }
+    }
+    return mat[row][l]==target;
+    
+}
 //search-a-2d-matrix-ii
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {

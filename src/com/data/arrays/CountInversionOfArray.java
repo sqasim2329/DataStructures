@@ -48,3 +48,13 @@ public class CountInversionOfArray {
 	}
 
 }
+
+
+/******
+ * 
+ * 		  mid
+ * {1,4}  {2,3}
+ * if 4 is greater than mid then all elemnets from mid+1 - (l+i)  so next when 4 nad 3 are compoared again
+ * mid+1 - l+i;             
+ * 
+ * *******/

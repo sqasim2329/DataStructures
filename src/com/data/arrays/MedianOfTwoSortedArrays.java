@@ -49,6 +49,6 @@ public class MedianOfTwoSortedArrays {
 	        int[] y = {7, 11, 19, 21, 18, 25};
 
 	        MedianOfTwoSortedArrays mm = new MedianOfTwoSortedArrays();
-	        mm.findMedianSortedArrays(x, y);
+	        System.out.println(mm.findMedianSortedArrays(x, y));
 	    }
 }

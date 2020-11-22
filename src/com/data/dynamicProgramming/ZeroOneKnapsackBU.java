@@ -7,7 +7,7 @@ public class ZeroOneKnapsackBU {
 		int weights[] = {3,1,5,2};
 		int capacity =7;
 		
-		System.out.println(findMaxProfit(profits,weights,capacity));
+		System.out.println(solve(profits,weights,capacity));
 	}
 
 	private static int findMaxProfit(int[] profits, int[] weights, int capacity) {
@@ -36,6 +36,21 @@ public class ZeroOneKnapsackBU {
 			}
 		}
 		return dp[0][capacity];
+	}
+	
+	private static int solve(int []profits,int weights[],int capacity) {
+		int dp[][]= new int[weights.length+1][capacity+1];
+		for(int i=1;i<=weights.length;i++) {
+			for(int j=1;j<=capacity;j++) {
+				if(j >= weights[i-1]) {
+					dp[i][j]=Math.max(dp[i-1][j], profits[i-1]+dp[i-1][j-weights[i-1]]);
+				}else {
+					dp[i][j]=dp[i-1][j];
+				}
+			}
+		}
+		return dp[weights.length][capacity];
+		
 	}
 
 }

@@ -25,5 +25,31 @@ public class RotateLinkedList {
         refNode.next = null;
         return newHead;
     }
+	
+	class Solution {
+	    public void rotate(int[] nums, int k) {
+	        
+	        int n = nums.length-1;
+	        k = k%nums.length;
+	        reverse(0,n,nums);
+	        reverse(0,k-1,nums);
+	        reverse(k,n,nums);
+	        
+	        
+	    }
+	    
+	    private void reverse(int l, int r, int[] nums){
+	        while(l<r){
+	            int tmp= nums[l];
+	            nums[l] = nums[r];
+	            nums[r] = tmp;
+	            r--;
+	            l++;
+	        }
+	    }
+	}
 
 }
+
+
+// n=0 while(curr!=null), n=1 while(curr.next!=null) for total node calculation

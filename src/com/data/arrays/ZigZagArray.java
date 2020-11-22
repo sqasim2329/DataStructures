@@ -47,4 +47,4 @@ slidind window maximuym
 3sum
 2sum
 
-	
+https://www.geeksforgeeks.org/minimum-distance-between-words-of-a-string/

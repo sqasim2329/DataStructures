@@ -2,6 +2,7 @@ package com.data.greedy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class GenerateParanthesis {
 	
@@ -32,5 +33,39 @@ public List<String> generateParenthesis(int n) {
     	GenerateParanthesis g = new GenerateParanthesis();
     	System.out.println(g.generateParenthesis(3));
     }
+    
+    class Solution {
+        public boolean isValid(String s) {
+            
+            Stack<Character> stk = new Stack<>();
+            boolean flag = false;
+            for(char c:s.toCharArray()){
+                if(c=='('||c=='{'||c=='['){
+                    stk.push(c);
+                }else{
+                    if(c==')')
+                        flag = checkForValidity('(',stk);
+                    else if(c == ']')
+                        flag = checkForValidity('[',stk);
+                    else if(c == '}')
+                        flag = checkForValidity('{',stk);
+                    if(!flag)
+                        break;
+                    
+                }
+            }
+            return flag&&stk.isEmpty();//"([]){"
+            
+        }
+        
+        private boolean checkForValidity(char c,Stack<Character> stk){
+            if(!stk.isEmpty() && stk.peek()==c){
+                stk.pop();
+                return true;
+            }
+            return false;
+        }
+    }
+    
 
 }

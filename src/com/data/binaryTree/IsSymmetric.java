@@ -10,19 +10,30 @@ public class IsSymmetric {
         root.left.right = new Node(4); 
         root.right.left = new Node(4); 
         root.right.right = new Node(3);
-        Boolean flag  = isMirror(root.left,root.right);
+        Boolean flag  = isSymmetric(root);
         System.out.println(flag);
 	}
 
-	private static Boolean isMirror(Node left, Node right) {
-		if(left==null && right == null) 
-			return true;
-		if(left!=null && right!=null && left.data == right.data)
-			return isMirror(left.left, right.right) &&
-					isMirror(left.right,right.left);
-		
-		 return false;
-	}
+	 public static boolean isSymmetric(TreeNode root) {
+	        if(root == null)
+	            return true;
+	        return dfs(root.left,root.right);
+	        
+	    }
+	    
+	    private boolean dfs(TreeNode left,TreeNode right){
+	        if(left == null && right == null)
+	            return true;
+	        
+	        if(left==null || right == null)
+	            return false;
+	        
+	        if(left.val == right.val){
+	            return dfs(left.left,right.right) && dfs(left.right,right.left);
+	        }
+	        
+	        return false;
+	    }
 }
 
 

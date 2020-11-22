@@ -1,37 +1,40 @@
 package com.data.arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-//failing for few cases
+
 public class ThreeSum {
 	
-	    public List<List<Integer>> threeSum(int[] nums) {
-	        int n= nums.length;
+	 public List<List<Integer>> threeSum(int[] nums) {
 	        List<List<Integer>> res = new ArrayList<>();
-	        if(n<3)
-	        	return res;
-	        Map<Integer,Integer> map = new HashMap<>();
-	        for(int i=0;i<nums.length;i++)
-	            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
-	        
-	        for(int i=0;i<n;i++){
-	            for(int j=i+1;j<n;j++){
-	                int p=-(nums[i]+nums[j]);
-	                if(map.getOrDefault(p,0)>0 ){
-	                    map.put(nums[i],map.get(nums[i])-1);
-	                    map.put(nums[j],map.get(nums[j])-1);
-	                    map.put(p,map.get(p)-1);
-	                    List<Integer> r= new ArrayList<>();
-	                    r.add(nums[i]);
-	                    r.add(nums[j]);
-	                    r.add(p);
-	                    res.add(r);
-	                }
+	        Arrays.sort(nums);
+	        int sum =0;
+	        for(int i =0 ; i<nums.length-2;i++){
+	            if(i==0 || (i>0 && nums[i]!=nums[i-1])){
+	            int j =i+1;
+	            int k =nums.length-1;
+	            sum =-nums[i];
+	            while(j<k){
+	                if(nums[j]+nums[k]==sum){
+	                    res.add(Arrays.asList(nums[i],nums[j],nums[k]));
+	                    while(j<k && nums[j]==nums[j+1])j++;
+	                    while(j<k && nums[k]==nums[k-1])k--;
+	                    j++;k--;
+	                }else if(nums[j]+nums[k]>sum){
+	                    k--;
+	                }else
+	                    j++;
 	            }
+	         
+	          }
+	            
 	        }
-	        return  res;
+	        
+	        return res;
+	        
 	        
 	    }
 	    

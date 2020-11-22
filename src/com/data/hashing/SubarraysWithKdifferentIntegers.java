@@ -26,7 +26,7 @@ public class SubarraysWithKdifferentIntegers {
                     count--;
                 left++;
             }
-            res += right-left+1;
+            res += right-left;
         }
         return res;
     }

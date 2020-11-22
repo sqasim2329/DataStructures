@@ -34,5 +34,20 @@ public class ReverseLevelOrder {
         
         
     }
+    
+    private void dfs(TreeNode root,List<List<Integer>> res,int level){
+        if(root == null)
+            return ;
+        
+        if(res.size()<=level)
+        {
+            res.add(0,new LinkedList<Integer>());
+        }
+        
+        List<Integer> ls = res.get(res.size()-1-level);
+        ls.add(root.val);
+        dfs(root.left,res,level+1);
+        dfs(root.right,res,level+1);
+    }
 
 }

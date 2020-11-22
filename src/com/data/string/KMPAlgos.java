@@ -12,6 +12,8 @@ public class KMPAlgos {
 			if(text.charAt(i)==pat.charAt(j)) {
 				i++;
 				j++;
+				if(j==m)
+					j = lps[j-1];//for multiple findings
 			}else {
 				if(j!=0) {
 					j = lps[j-1];
@@ -21,8 +23,10 @@ public class KMPAlgos {
 			}			
 		}
 		if(j==m) {
-			return true;
+			System.out.println(i-m);
+			return true;//index will be i-m+1;
 		}
+		
 		return false;
 	}
 	

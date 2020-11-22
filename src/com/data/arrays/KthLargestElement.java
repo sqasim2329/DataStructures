@@ -8,7 +8,7 @@ public class KthLargestElement {
 	
 	public static void main(String args[]) {
 		Integer arr[] = {6,4,1,3,9,7,0};
-		getKthLargestElement(arr,3);
+		KthLargestElement(arr,3);
 	}	
 	
 	private static void getKthLargestElement(Integer[] arr, int k) {
@@ -23,6 +23,21 @@ public class KthLargestElement {
 			}
 		}
 		System.out.println(pq2.peek());
+	}
+	
+	private static void KthLargestElement(Integer[] arr, int k) {
+		List<Integer> intList = Arrays.asList(arr);
+		int n = arr.length;
+		PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)->(a-b));
+		for(int i=0; i<n; i++){
+		if(pq.size()<k) {
+			pq.add(arr[i]);
+		}else if(pq.peek()<arr[i]) {
+			pq.poll();
+			pq.add(arr[i]);
+		}
+		}
+		System.out.println(pq.peek());
 	}
 	
 	

@@ -59,6 +59,7 @@ public class HuffmanEncodingDecoding {
 		if(peek.left == null && peek.right == null && Character.isLetter(peek.c)) {
 			System.out.println(peek.c+":"+s);
 			codeMap.put(peek.c, s);
+			return;
 			
 		}
 		

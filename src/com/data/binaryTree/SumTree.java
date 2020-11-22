@@ -2,37 +2,46 @@ package com.data.binaryTree;
 
 public class SumTree {
 	
-	boolean isSumTree(Node node)
+	class Tree
 	{
-	    if(node==null)
-	    return true;
-	     
-	    if(node.left!=null && node.right!=null 
-	    && sum(node.left)+sum(node.right)==node.data)
-	    return true;
-	    else if(node.left==null && node.right==null)
-	    return true;
-	    else
-	    return false;
+	    class Sum{
+	        int s;
+	    }
 	    
-           
-              
-	}
-	
-	int sum(Node root){
-	    if(root==null)
-	    return 0;
-	    
-	    int sumLeft=sum(root.left);
-	    int sumRight=sum(root.right);
-	    
-	    return sumLeft+sumRight+root.data;
-	    
-	}
-	
-	public static void main(String args[]) {
+		boolean isSumTree(Node node)
+		{   Sum s = new Sum();
+		    return dfs(node,s);
+		}
 		
 		
+		private boolean dfs(Node node,Sum s){
+		    if(node == null)
+		    {
+		        s.s =0;
+		        return true;
+		    }
+		    Sum lsum = new Sum();
+		    Sum rsum = new Sum();
+		    boolean left = dfs(node.left,lsum);
+		    boolean  right = dfs(node.right,rsum);
+		    
+		    if(node.left == null && node.right == null)
+		    {
+		    	s.s = node.data;
+		    	return true;
+		    }
+		    else{
+		        int ls = lsum.s;
+		        int rs = rsum.s;
+		        s.s = node.data + ls+ rs;
+		        if(ls+rs != node.data)
+		        {
+		            return false;
+		        }
+		    }
+		    return left && right;
+		    
+		}
 	}
 
 }

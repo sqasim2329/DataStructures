@@ -31,7 +31,7 @@ public class CamelCaseMatching {
                     break;
                 }
             }
-            bool.add(current.endOfWord&flag);
+            bool.add(current.endOfWord&flag);//FoBaT, FooBar hence eow is rewuired
         }
         return bool;
 	}

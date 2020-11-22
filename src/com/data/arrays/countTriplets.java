@@ -1,4 +1,7 @@
 package com.data.arrays;
+
+import java.util.Arrays;
+
 //A+B=C//use map if you have large number of elem or arr is fine
 public class countTriplets {
 	
@@ -20,6 +23,31 @@ public class countTriplets {
 		System.out.println(count);
 	}
 	
+	///count number of triplets which have value less than guven sum	
+	public int solve(int[] arr, int sum) {
+		int n = arr.length;
+		int ans=0;
+		 Arrays.sort(arr); 
+		for(int i=0;i<n;i++) {
+			int j = i+1;
+			int k = n-1;
+			while(j<k)//similar to find a pair of two.
+			{
+				if(arr[i] + arr[j] + arr[k]>=sum)
+					k--;
+				else {
+					ans+=k-j;
+					j++;
+				}
+			}
+		}
+		
+		return ans;
+	}
 	
 
 }
+
+
+
+

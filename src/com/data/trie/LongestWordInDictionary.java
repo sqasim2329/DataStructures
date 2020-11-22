@@ -2,18 +2,11 @@ package com.data.trie;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
-class TrieNode {
-
-	Map<Character, TrieNode> children;
-	boolean endOfWord;
-	int ends;
-
-	public TrieNode() {
-		super();
-		this.children = new HashMap<>();
-	}
-
+class Trie{
+    Map<Character,Trie> children = new HashMap<>();
+    int index = -1;
 }
 
 class MaxObj {
@@ -25,39 +18,58 @@ class MaxObj {
 public class LongestWordInDictionary {
 
 	public static void main(String args[]) {
-		String[] words = {"yo","ew","yodn","ewq","yod","ewqz","y" };
-		TrieNode root = new TrieNode();
-		MaxObj ob = new MaxObj();
-
-		for (int i = 0; i < words.length; i++) {
-			createTrie(words[i], root, ob);
-		}
-
-		System.out.println(ob.word);
+		String[] words = {"w","wo","wor","worl", "world"};
+		Trie root = new Trie();
+		LongestWordInDictionary l =new LongestWordInDictionary();
+		System.out.println(l.longestWord(words));
 
 	}
 
-	private static void createTrie(String word, TrieNode root, MaxObj ob) {
-		TrieNode current = root;
-		int end = 0;
-		for (int i = 0; i < word.length(); i++) {
-			char ch = word.charAt(i);
-			TrieNode node = current.children.get(ch);
-			end = current.ends;
-			if (node == null) {
-				node = new TrieNode();
-				current.children.put(ch, node);
-				current.ends=end;
-			}
-			current = node;
-		}
-		current.endOfWord = true;
-		current.ends = end + 1;
-		if ((current.ends > ob.maxEnds && word.length() == ob.maxLength)
-				|| (current.ends == ob.maxEnds && word.length() == ob.maxLength && word.compareTo(ob.word) < 0)) {
-			ob.maxLength = word.length();
-			ob.maxEnds = current.ends;
-			ob.word = word;
-		}
-	}
+	public String longestWord(String[] words) {
+        Trie root= new Trie();
+        int index = 0;
+        for(String word:words)
+        createTrie(word,index++,root);
+        return dfs(root,words);
+    }
+	
+	private int createTrie(String word,int index,Trie root){
+        Trie current = root;
+        for(char ch: word.toCharArray()){
+            Trie node = current.children.get(ch);
+            if(node == null){
+                node = new Trie();
+                current.children.put(ch,node);
+            }
+            current = node;
+        }
+        current.index = index;
+        return index;
+    }
+    
+    private String dfs(Trie root,String[] words){
+        Stack<Trie> stk = new Stack<>();
+        stk.push(root);
+        String ans = "";
+        int max = 0;
+        while(!stk.isEmpty()){
+            Trie node = stk.pop();
+            if(node.index > -1 || node == root){
+                if(node!=root){
+                    String query = words[node.index];
+                    if(query.length()>max || query.length()==max && query.compareTo(ans)<0)
+                    {
+                        max = query.length();
+                        ans = query;
+                    }
+                }
+                    for(Trie child : node.children.values()){
+                        stk.push(child);
+                    }
+                
+            }
+        }
+        
+        return ans;
+    }
 }

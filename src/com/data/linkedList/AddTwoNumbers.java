@@ -1,4 +1,7 @@
 package com.data.linkedList;
+
+import java.util.Stack;
+
 //dont use while loop dorectly check if for loop can be used
 public class AddTwoNumbers {
 	
@@ -42,5 +45,49 @@ public class AddTwoNumbers {
          newNode.next = addTwoNumbers(l1!=null?l1.next:null,l2!=null?l2.next:null,carry);
          return newNode;
 	 }
+	 
+	 public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+	        
+	        
+	        Stack<ListNode> stk1 = new Stack<>();
+	        Stack<ListNode> stk2 = new Stack<>();
+	        while(l1!=null){
+	            stk1.push(l1);
+	            l1 = l1.next;
+	        }
+	        
+	        while(l2!=null){
+	            stk2.push(l2);
+	            l2=l2.next;
+	        }
+	        int carry = 0;
+	        ListNode head = new ListNode(-1);
+	        ListNode curr = head;
+	        
+	        while(!stk1.isEmpty()||!stk2.isEmpty()){
+	            int x = stk1.isEmpty()?0:stk1.pop().val;
+	            int y = stk2.isEmpty()?0:stk2.pop().val;
+	            
+	            int val = x+y+carry;
+	            carry = val/10;
+	            ListNode node = new ListNode(val%10);;
+	            if(curr.next==null)
+	            curr.next = node; 
+	            else{
+	                node.next = curr.next;// placing the new node before the next node
+	                curr.next = node;
+	            }
+	            }
+	        
+	        if(carry > 0){
+	            ListNode node = new ListNode(carry);
+	            node.next = curr.next;
+	            curr.next = node;
+	        }
+	        
+	        return head.next;
+	    }
 
 }
+
+//https://www.geeksforgeeks.org/subtract-two-numbers-represented-as-linked-lists/

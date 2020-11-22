@@ -19,4 +19,26 @@ public int majorityElement(int[] nums) {
         
     }
 
+class Solution {
+    public int majorityElement(int[] nums) {
+        
+        int elem = 0;
+        int count = 0;
+        
+        for(int i:nums){
+            if(count == 0){
+                elem = i;
+                count++;
+            }else{
+                if(elem == i)
+                    count++;
+                else
+                    count--;
+            }
+        }
+        return elem;
+        
+    }
+}
+
 }

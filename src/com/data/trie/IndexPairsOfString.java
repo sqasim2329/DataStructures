@@ -1,5 +1,9 @@
 package com.data.trie;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class IndexPairsOfString {
 	
 	public static void main(String args[]) {
@@ -11,33 +15,33 @@ public class IndexPairsOfString {
 			createTrie(root,arr[i]);
 			}
 		
-		printPairs(word, root);
-	}
-
-
-	private static void printPairs(String word, NodeTrie root) {
-		int i=0;
-		while(i<word.length()) {
-			int st=i;
-			int end=i;
-			NodeTrie current=root;
-			while(end < word.length()) {
-				char ch=word.charAt(end);
-				if(current.children.get(ch)!=null &&
-						current.children.get(ch).endOfWord) {
-					System.out.println(st+" "+end);
-				}
-				if(current.children.get(ch)!=null && current.children.get(ch).children.size()>0) {
-					end++;
-					current=current.children.get(ch);
-				}else {
-					break;
-				}
-				
-			}
-			i++;
+		int[][] out=indexPairs(word, root);
+		for(int[] o:out) {
+			Arrays.stream(o).forEach(System.out::print);
+			System.out.println();
 		}
 	}
+
+	
+	private static int[][] indexPairs(String s, NodeTrie root){
+        int i=0;
+        List<int[]> res = new ArrayList<>();
+        NodeTrie current = root;
+        while(i < s.length()){
+            int j=i;
+            current = root;
+            while(j<s.length() && current.children.get(s.charAt(j))!=null){
+                current = current.children.get(s.charAt(j));
+                
+                if(current!=null && current.endOfWord)
+                    res.add(new int[]{i,j});
+                
+                j++;
+            }
+            i++;
+        }
+        return res.toArray(new int[res.size()][]);
+    }
 	
 	
 	private static void createTrie(NodeTrie root, String dictionary) {

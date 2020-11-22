@@ -15,7 +15,7 @@ public class SumEqualsSum {
 	}
 	
 	public static void main(String args[]) {
-		int []arr= {3,4,7,1,2,9,8};
+		int []arr= {10, 2, 3, 4, 5, 9, 7, 8};
 		int n= arr.length;
 		Obj ob1 = null;
 		Obj ob2 = null;
@@ -27,8 +27,8 @@ public class SumEqualsSum {
 				ob2= new Obj(arr[i],arr[j]);
 				if(m.containsKey(sum)) {
 					ob1=m.get(sum);
-					System.out.println(ob1.a+"--"+ob1.b);
-					System.out.println(ob2.a+"--"+ob2.b);
+					System.out.println(arr[ob1.a]+"--"+arr[ob1.b]);
+					System.out.println(arr[ob2.a]+"--"+arr[ob2.b]);
 					flag=1;
 					break;
 				}else {
@@ -41,3 +41,4 @@ public class SumEqualsSum {
 	}
 
 }
+//https://www.geeksforgeeks.org/find-four-elements-that-sum-to-a-given-value-set-2/--this is correct

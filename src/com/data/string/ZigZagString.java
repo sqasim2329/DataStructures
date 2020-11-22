@@ -4,7 +4,7 @@ public class ZigZagString {
 	
 	public static void main(String args[]) {
 		String s = "PAYPALISHIRING";
-		int row = 4;
+		int row = 3;
 		if(row <=1)
 			System.out.println(s);
 		System.out.println(convert(s,row));

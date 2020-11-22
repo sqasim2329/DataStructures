@@ -6,6 +6,7 @@ public class QueuesUsingStack {
 	
 	Stack<Integer> stk1 = new Stack<>();
 	Stack<Integer> stk2 = new Stack<>();
+	int front=0;
 	
 	
 	private void enqeue(int x) {
@@ -44,6 +45,8 @@ public class QueuesUsingStack {
 	
 	//better solution
 	private void push(int x) {
+		if(stk1.isEmpty())
+			front = x;
 		stk1.push(x);
 	}
 	
@@ -57,7 +60,7 @@ public class QueuesUsingStack {
 	}
 	
 	private int peek() {
-		return stk2.peek();
+		return stk2.isEmpty()?front:stk2.peek();
 	}
 	
 	private boolean isEmpty() {

@@ -26,3 +26,4 @@ public class KthMissingElementinSortedArray {
 	
 }
 
+// there is a binary search for this problem

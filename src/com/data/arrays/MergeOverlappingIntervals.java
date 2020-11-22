@@ -1,7 +1,7 @@
 package com.data.arrays;
 
 import java.util.Arrays;
-import java.util.Stack;
+import java.util.LinkedList;
 
 public class MergeOverlappingIntervals {
 	
@@ -28,25 +28,23 @@ public class MergeOverlappingIntervals {
 //        arr[2]=new Interval(5,7); 
 //        arr[3]=new Interval(6,8);
 		int nums[][]= {{6,8},{5,7},{1,9},{2,4},{10,11}};
-        mergeIntervals(nums);
+		merge(nums);
 	}
 
-private static void mergeIntervals(int[][] nums) {
-	Arrays.sort(nums,(i1,i2)->Integer.compare(i1[0], i2[0]));
-	Stack<int[]> s = new Stack<>();
-	s.push(nums[0]);
-	for(int i=1;i<nums.length;i++) {
-		if(s.peek()[1] >= nums[i][0]) {
-			s.peek()[1]=Math.max(s.peek()[1], nums[i][1]);
-		}else {
-			s.push(nums[i]);
-		}
-	}
+	public static int[][] merge(int[][] intervals) {
+        Arrays.sort(intervals,(a,b)->Integer.compare(a[0],b[0]));
+        
+        LinkedList<int[]> res = new LinkedList<>();
+        for(int[] interval:intervals){
+            if(res.isEmpty() || res.getLast()[1] < interval[0])
+                res.add(interval);
+            else
+                res.getLast()[1]= Math.max(res.getLast()[1],interval[1]);
+        }
+        return res.toArray(new int[res.size()][]);
+        
+    }	
 	
-	while(!s.isEmpty()) {
-		System.out.println(s.peek()[0]+" "+s.peek()[1]);
-		s.pop();
-	}
 }
 
 

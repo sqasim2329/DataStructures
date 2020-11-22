@@ -35,5 +35,36 @@ public class IsomorphicStrings {
 	        return true;
 	        
 	    }
+	 
+		    public boolean wordPattern(String pattern, String s) {
+		        
+		        if(pattern == null && s == null)
+		            return true;
+		        
+		        if(pattern == null || s == null)
+		            return false;
+		        String[] words = s.split("\\s+");
+		        
+		        if(pattern.length() != words.length)
+		            return false;
+		        Map<Character,String> map = new HashMap<>();
+		        for(int i=0;i<pattern.length();i++){
+		            char a = pattern.charAt(i);
+		            String b = words[i];
+		            if(map.containsKey(a)){
+		                if(!map.get(a).equals(b))
+		                    return false;
+		            }else{
+		                if(map.containsValue(b))
+		                    return false;
+		                map.put(a,b);
+		            }
+		        }
+		        
+		        return true;
+		        
+		        
+		        
+		    }
 
 }

@@ -21,7 +21,7 @@ public class ActivitySelectionProblem {
 		int[] finish = {2, 4, 6, 7, 9, 9};
 		int arr[][] = {{5, 9}, {1, 2}, {3, 4}, {0, 6}, 
                 {5, 7}, {8, 9}};
-		Arrays.sort(arr, (a,b)->(a[1]-b[1]));
+		Arrays.sort(yg, (a,b)->(a[1]-b[1]));
 //		Arrays.sort(arr, (a,b)->(a[1]-b[1])*-1); 
 		
 		printMaxActivities(start,finish);

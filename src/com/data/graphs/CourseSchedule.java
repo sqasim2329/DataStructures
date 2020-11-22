@@ -9,32 +9,41 @@ import java.util.Queue;
 //O(V+E) ,O(2V)
 public class CourseSchedule {
 	
-	public boolean canFinish(int nc, int [][] preq) {
-		int[] od= new int[nc];
-		Queue<Integer> q= new LinkedList<>();
-		for(int i=0;i<preq.length;i++) {
-			od[preq[i][0]]++;
-		}
-		
-		for(int i=0;i<preq.length;i++) {
-			if(od[i]==0) 
-				q.add(i);
-		}
-		int count=0;
-		while(!q.isEmpty()) {
-			int pop = q.poll();
-			count++;
-			for(int i=0;i<preq.length;i++) {// can use a map to impreiove efficiency
-				if(preq[i][1]==pop) {
-					od[preq[i][0]]--;
-					if(od[preq[i][0]]==0)
-						q.add(preq[i][0]);
-				}
-			}
-		}
-		
-		return count==nc;
-	}
+public boolean canFinish(int nc, int[][] prerequisites) {
+        
+        
+        int[] indegree=new int[nc];
+        LinkedList<Integer>[] adj = new LinkedList[nc];
+        for(int i=0;i<nc;i++)
+            adj[i]= new LinkedList<>();
+        
+        for(int[] preq:prerequisites){
+            indegree[preq[1]]++;
+            adj[preq[0]].add(preq[1]);
+        }
+        Queue<Integer> q = new LinkedList<>();
+        for(int i=0;i<indegree.length;i++){
+            if(indegree[i]==0)
+                q.add(i);
+        }
+        
+        while(!q.isEmpty()){
+            int source= q.poll();
+            nc--;
+            for(int ad:adj[source]){
+                indegree[ad]--;
+                if(indegree[ad]==0){
+                    q.add(ad);
+                }
+            }
+        }
+        
+        
+        return nc==0;
+        
+        
+        
+    }
 	
 	public static void main(String args[]) {
 		int nc=2;

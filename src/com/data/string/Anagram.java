@@ -1,7 +1,11 @@
 package com.data.string;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Anagram {
 	
@@ -21,20 +25,27 @@ public class Anagram {
 		}
 	}
 	
+	
 	public static void main(String args[]) {
 		String[] strArr = {"cat", "dog", "tac", "god", "act"};
-		Aangram[] arr= new Aangram[strArr.length];
-		for(int i=0; i< strArr.length; i++) {
-			char[] char_arr = strArr[i].toCharArray();
-			Arrays.sort(char_arr);
-			arr[i] = new Aangram(i,new String(char_arr));
+		Map<String,List<String>> map = new HashMap<>();
+		for(String word:strArr) {
+			char[] ch = new char[26];
+			for(char c:word.toCharArray()) {
+				ch[c-'a']++;
+			}
+			String key = new String(ch);
+			if(map.containsKey(key)) {
+				map.get(key).add(word);
+			}else {
+				List<String> ls = new ArrayList<>();
+				ls.add(word);
+				map.put(key, ls);
+			}
+			
 		}
 		
-		Arrays.sort(arr,new StrComp());
-		for(int i=0; i< strArr.length; i++ ) {
-			System.out.println(arr[i].index+" "+strArr[arr[i].index]);
-		}
-		
+		System.out.println(map.values());
 	}
 
 }

@@ -27,8 +27,9 @@ public class GroupedAnagrams {
 		return result;
 	}
 	
-	
-	 public List<List<String>> groupAnagrams(String[] strs) {
+	//char / int arr cannot form a key in map, hence use char array instead of string array since it is easier to do 
+	//String.valueOf(ca);, Integer[] will have null inside and can null pointer hence first update integrer array value to 0;
+	 public static List<List<String>> groupAnagrams(String[] strs) {
 	        if (strs == null || strs.length == 0) return new ArrayList<>();
 	        Map<String, List<String>> map = new HashMap<>();
 	        for (String s : strs) {
@@ -40,5 +41,10 @@ public class GroupedAnagrams {
 	        }
 	        return new ArrayList<>(map.values());
 	    }
+	 
+	 public static void main(String args[]) {
+		 String s[] = {"eat","tea","tan","ate","nat","bat"};
+		 System.out.println(groupAnagrams(s));
+	 }
 
 }

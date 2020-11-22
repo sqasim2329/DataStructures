@@ -2,31 +2,40 @@ package com.data.dynamicProgramming;
 
 public class SwapAdjacentinLRString {
 	
-	private static boolean canTransform() {
-		String s = "RXXLRXRXL";
-		String e = "XRLXXRRLX";
-		if(s.length()!=e.length()) return false;
-		if(!s.replaceAll("X", "").equals(e.replaceAll("X", ""))) return false;
-		
-		char[] sa = s.toCharArray();
-		char[] ea = e.toCharArray();
-		int i=0,j=0;
-		while(i<s.length()) {
-			while(i<sa.length &&  sa[i]=='X')i++;
-			while(j<ea.length &&  ea[j]=='X')j++;
-			if(i==sa.length && j==ea.length) return true;
-			if(i==sa.length || j==ea.length) return false;
-			
-			if(sa[i]=='L' && j > i)return false;
-			if(ea[i]=='R' && i > i)return false;
-			i++;
-			j++;
-		}
-		return true;
+	private static boolean canTransform(String start, String end) {
+		if(start == null && end == null)
+            return true;
+        if(start==null || end ==null)
+            return false;
+        
+        if(start.length() != end.length())
+            return false;
+        
+        if(!start.replaceAll("X","").equals(end.replaceAll("X","")))
+            return false;
+        
+        int i=0;
+        int j=0;
+        while(i<start.length() && j < end.length()){
+            while(i<start.length() && start.charAt(i)=='X')i++;
+            while(j<end.length() && end.charAt(j)=='X')j++;
+            if(i == start.length() && j == end.length())return true;
+            if(i == start.length() || j == end.length())return false;
+            
+            if(start.charAt(i)=='R' && i>j) return false;
+            if(start.charAt(i)=='L' && i<j) return false;
+            i++;
+            j++;
+        }
+        
+        return true;
+            
+        
 	}
 	
 	public static void main(String args[]) {
-		System.out.println(canTransform());
+		String start=""; String end="";
+		System.out.println(canTransform(start,end));
 	}
 
 }

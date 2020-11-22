@@ -24,3 +24,11 @@ public class ElemWithLeftSideSmallerNRightSideGreater {
 	}
 
 }
+
+/*
+ * 
+ *  elemenst which is greater than max from left and min from right wrt to the element
+ * 
+*/
+
+

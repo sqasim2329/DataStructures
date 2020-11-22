@@ -1,22 +1,31 @@
 package com.data.arrays;
 
 public class RainWaterTrapping {
-    public int trap(int[] height) {
-        if (height.length==0) return 0; 
-        int left = 0, right = height.length-1; 
-        int leftMax=0, rightMax=0; 
-        int ans = 0; 
-        while (left < right) {
-            if (height[left] > leftMax) leftMax = height[left]; 
-            if (height[right] > rightMax) rightMax = height[right];
-            if (leftMax < rightMax) {
-                ans += Math.max(0, leftMax-height[left]); 
-                left++; 
-            } else {
-                ans += Math.max(0, rightMax-height[right]); 
-                right--; 
-            }
-        }
-        return ans; 
-    }
+    
+    	  public int trap(int[] arr) {
+    	        
+    	        int Lmax = 0;
+    	        int Rmax = 0;
+    	        int l=0;
+    	        int r=arr.length-1;
+    	        int res = 0;
+    	        while(l<=r){
+    	            if(arr[l]<=arr[r]){
+    	                if(arr[l] > Lmax){
+    	                    Lmax = arr[l++];
+    	                }else{
+    	                    res+=Lmax-arr[l++];
+    	                }
+    	            }else{
+    	                if(arr[r]>Rmax){
+    	                    Rmax = arr[r--];
+    	                }else{
+    	                    res+=Rmax-arr[r--];
+    	                }
+    	            }
+    	        }
+    	        
+    	        return res;
+    	        
+    	    }
 }

@@ -1,4 +1,4 @@
-package com.data.arrays;
+ package com.data.arrays;
 //given an array with broken staircase find ways to reach nth step--broken stair case means skip counting for that step 
 public class BrokenStairCaseProbelm {
 	public static void main(String args[]) {

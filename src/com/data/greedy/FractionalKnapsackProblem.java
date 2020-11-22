@@ -55,13 +55,13 @@ public class FractionalKnapsackProblem {
 		for(int i=0; i <= arr.length-1; i++) {
 			pq.add(new Node(arr[i][1],arr[i][0],(arr[i][0]/arr[i][1])));
 		}
-		while(!pq.isEmpty()) {
+		while(!pq.isEmpty() || knapsackCapacity > 0) {
 			if(knapsackCapacity > pq.peek().weight) {
 				knapsackCapacity = knapsackCapacity-pq.peek().weight;
 				fractionList.add(pq.poll());
 			}
 			else {
-				if(knapsackCapacity == 0) break;
+				
 				Node node = pq.poll();
 				node.weight = (knapsackCapacity/node.weight)*node.weight;
 				node.val = node.ratio*node.weight;

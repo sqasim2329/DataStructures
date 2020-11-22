@@ -1,5 +1,5 @@
 package com.data.heap;
-
+//same can be used for find peak element
 public class PeakIndexInMountainArray {
 	
 	 public int peakIndexInMountainArray(int[] nums) {

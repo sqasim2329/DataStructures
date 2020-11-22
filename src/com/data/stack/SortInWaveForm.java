@@ -26,3 +26,12 @@ public class SortInWaveForm {
 		}
 
 }
+/**
+ * 
+ * 
+ * 	a>=b<=c
+ * 	i  (i+1)/(i-1)  i
+ * if(a[i]<a[i+1]) swap(i.i+1)
+ * if(a[i-1]>a[i]) swap(i-1,i)
+ * 
+ */

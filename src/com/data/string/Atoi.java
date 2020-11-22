@@ -18,7 +18,7 @@ public class Atoi {
 		
 		for(int i=index ; i< str.length();i++) {
 			int val = str.charAt(i)-'0'; 
-			if(val > 9) {
+			if(val > 9) {//21a is input
 				return -1;
 			}
 			res =res*10+val;

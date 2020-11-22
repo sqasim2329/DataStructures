@@ -40,13 +40,13 @@ public class SemaphoreAsLocks {
 	
 	
 	public static void main(String args[]) throws InterruptedException {
-		Semaphore sem = new Semaphore(1);
+		Semaphore sem = new Semaphore(2);
 		
 		SemThread t1 = new SemThread(sem,"A");
 		SemThread t2 = new SemThread(sem,"B");
 		
 		t1.start();
-		t1.join();
+		
 		t2.start();
 		
 	}

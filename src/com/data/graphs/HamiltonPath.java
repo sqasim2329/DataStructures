@@ -24,9 +24,7 @@ public class HamiltonPath {
 		vis[i] = true;
 		for(int adj:g[i]) {
 			if(!vis[adj]) {
-				if(!hamiltonpath(vis,c+1,n,adj))
-					continue;
-				else
+				if(hamiltonpath(vis,c+1,n,adj))
 					return true;
 			}
 		}

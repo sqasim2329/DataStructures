@@ -1,5 +1,5 @@
 package com.data.heap;
-//edge case [0],0  [1],1
+//edge case [0],0  [1],1->[1]
 public class MergeSortedArrays {
 	
 	public void merge(int[] nums1, int m, int[] nums2, int n) {

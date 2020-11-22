@@ -9,6 +9,8 @@ import java.util.Queue;
 //https://www.geeksforgeeks.org/minimum-cost-graph/?ref=leftbar-rightbar--sat
 //Number of connected components in an undirected graph
 //https://www.geeksforgeeks.org/tarjan-algorithm-find-strongly-connected-components/--sat
+
+// use adjacenyc matrix will reduce space
 public class MaxEdgeDAG {
 	int v;
 	LinkedList<Integer>[] g ;
