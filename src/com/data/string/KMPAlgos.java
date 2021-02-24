@@ -1,7 +1,7 @@
 package com.data.string;
 
 import java.util.Arrays;
-
+//https://www.geeksforgeeks.org/longest-prefix-also-suffix/--check also this
 public class KMPAlgos {
 	
 	public static boolean KMPSearch(int lps[],String text,String pat) {

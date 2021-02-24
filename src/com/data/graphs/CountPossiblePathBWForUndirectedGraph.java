@@ -1,7 +1,7 @@
 package com.data.graphs;
 
 import java.util.LinkedList;
-
+///https://www.geeksforgeeks.org/count-possible-paths-two-vertices/
 public class CountPossiblePathBWForUndirectedGraph {
 	
 	int vertices;
@@ -35,22 +35,21 @@ public class CountPossiblePathBWForUndirectedGraph {
         
         int s=0;
         int d=4;
-        int count=0;
-        StringBuffer sb = new StringBuffer();
         boolean visisted[] = new boolean[6];
-        count = g.countPaths(s,d,count,visisted);
-        System.out.println(count);
+        
+        System.out.println(g.countPaths(s,d,visisted));
 	}
 
-	private int countPaths(int s, int d, int count, boolean visisted[]) {
-		visisted[s]=true;
+	private int countPaths(int s, int d, boolean visisted[]) {
+		
 		if(s==d)
-				 count++;
-		else
+				 return 1;
+		visisted[s] = true;
+		int count = 0;
 		for(int j:adj[s]) {
 			if(!visisted[j]) {
 			
-			count = countPaths(j,d,count,visisted);
+			count += countPaths(j,d,visisted);
 			
 			}
 		}

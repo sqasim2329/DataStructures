@@ -3,21 +3,19 @@ package com.data.binaryTree;
 public class FlattenABinaryTree {
 	
 	    
-	    TreeNode prev = null;
-	    public void flatten(TreeNode root) {
+	 public void flatten(TreeNode root) {
 	        
-	        if(root == null)
-	            return;
-	        
-	       
-	       
-	        flatten(root.right);
-	        flatten(root.left);
-	        root.right = prev;
-	        root.left = null;
-	        prev = root;
-	        
-	        
+	        dfs(root,null);
+	    }
+	    
+	    private TreeNode dfs(TreeNode root, TreeNode pre){
+	          if(root==null) return pre;
+	        pre=dfs(root.right,pre);    
+	        pre=dfs(root.left,pre);
+	        root.right=pre;
+	        root.left=null;
+	        pre=root;
+	        return pre;
 	    }
 
 }

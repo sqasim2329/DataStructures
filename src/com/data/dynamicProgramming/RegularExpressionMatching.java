@@ -15,8 +15,8 @@ public class RegularExpressionMatching {
 	                         (s.charAt(0)==p.charAt(0) || p.charAt(0)=='.'));
 	        
 	        if(p.length()>=2 && p.charAt(1)=='*'){
-	            boolean restChrs = isMatch(s,p.substring(2)) ||//zero characters
-	                firstChr && isMatch(s.substring(1),p);//more chracters
+	            boolean restChrs = isMatch(s,p.substring(2)) ||//zero characters "" .*
+	                firstChr && isMatch(s.substring(1),p);//more chracters aa a*
 	            map.put(key,restChrs);
 	            return restChrs;
 	        }else{

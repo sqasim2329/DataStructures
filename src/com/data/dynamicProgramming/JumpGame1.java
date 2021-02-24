@@ -2,7 +2,6 @@ package com.data.dynamicProgramming;
 
 public class JumpGame1 {
 	
-	
 	    public boolean canJump(int[] nums) {
 	       int max =nums[0];
 	        

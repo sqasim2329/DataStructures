@@ -2,12 +2,12 @@ package com.data.graphs;
 //You are on an infinite graph and starting from (1, 1), you can move either (x+y, y) or (x, x+y) and you need to find out whether you can reach the given point or not.
 //BFS or DFS is not advised since assumption is infinite graph 
 //euclliidean theorem
-public class CheckDesiredMovement {
+public class c {
 	
 	public static void main(String args[]) {
 		int x=35;
 		int y=15;
-		int a=20;
+		int  a=20;
 		int b=25;
 		System.out.println(isPossible(x,y,a,b));
 		System.out.println(gcd(1701,3768));
@@ -19,9 +19,7 @@ public class CheckDesiredMovement {
 		 a= Math.abs(a);
 		 b= Math.abs(b);
 		 
-		 return gcdItr(x,y)==gcdItr(a,b);
-		
-		
+		 return gcdItr(x,y)==gcdItr(a,b);	
 	}
 
 	private static int gcd(int x, int y) {

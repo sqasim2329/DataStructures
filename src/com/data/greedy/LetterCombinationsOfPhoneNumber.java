@@ -40,7 +40,7 @@ public class LetterCombinationsOfPhoneNumber {
 	    }
 	    
 	    public static void main(String args[]) {
-	    	String digits = "23";
+	    	String digits = "2339";
 	    	LetterCombinationsOfPhoneNumber  bt = new LetterCombinationsOfPhoneNumber();
 	    	System.out.println(bt.letterCombinations(digits));
 	    }

@@ -7,7 +7,7 @@ public class NonRepeatingCharacter {
 	public static void main(String args[]) {
 		
 		String s="wlrbbmqbhcdarzowkkyhiddqscdxrjmowfrxsjybldbefsarcbynecdyggxxpklorellnmpapqfwkhopkmcoqhnwnkuewhsqmgbbuqcljjivswmdkqtbxixmvtrrbljptnsnfwzqfjmafadrrwsofsbcnuvqhffbsaqxwpqcacehchzvfrkmlnozjkpqpxrjxkitzyxacbhhkicqcoendtomfgdwdwfcgpxiqvkuytdlcgdewhtaciohordtqkvwcsgspqoqmsboaguwnnyqxnzlgdgw";
-		s = "aabc";
+//		s = "aabc";
 //		s="geeksforgeeksandgeeksquizfor";
 		int freq[] = new int[26];
 		LinkedList<Character> ll = new LinkedList<>();

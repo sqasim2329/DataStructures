@@ -11,9 +11,11 @@ public class MinOperationToObtainN {
 	public int minOperation(int n)
     {
         return solve(n,0);
+    
     }
     
-    private int solve(int n,int cnt){
+
+	private int solve(int n,int cnt){
         if(n==0)
         return cnt;
         

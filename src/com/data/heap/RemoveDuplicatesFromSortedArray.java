@@ -2,24 +2,20 @@ package com.data.heap;
 
 public class RemoveDuplicatesFromSortedArray {
 	
-public int removeDuplicates(int[] nums) {
+
         
-        if(nums.length==0 || nums.length==1)
-            return nums.length;
-        
-        int i=1;
-        int indx=0;
-        
-        while(i<nums.length){
-            if(nums[i]==nums[i-1]){
+	public int removeDuplicates(int[] nums) {
+        int i =0;
+        for(int j =0;j<nums.length;j++){
+            if(nums[j]!=nums[i]){
                 i++;
-            }else{
-                indx++;
-                nums[indx] = nums[i++];
+                nums[i]=nums[j];
             }
         }
-        return indx+1;
+        return i+1;//i is 0th based indexing
         
     }
+        
+
 
 }

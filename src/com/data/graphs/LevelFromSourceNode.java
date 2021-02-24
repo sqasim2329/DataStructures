@@ -107,5 +107,28 @@ public class LevelFromSourceNode {
 		}
 		
 	}
+	
+	
+	private void bfs(int s,LinkedList<Integer>[] g) {
+		Queue<Integer> q = new LinkedList<>();
+		q.add(s);
+		List<List<Integer>> res = new ArrayList<>();
+		boolean vis[]= new boolean[g.length];
+		while(!q.isEmpty()) {
+			int size = q.poll();
+			List<Integer> ls = new ArrayList<>();
+			for(int i=0;i<size;i++) {
+				int v = q.poll();
+				vis[v]=true;
+				ls.add(v);
+				for(int adj:g[v]) {
+					if(!vis[adj])
+						q.add(adj);
+				}
+			}
+			res.add(ls);
+			
+		}
+	}
 
 }

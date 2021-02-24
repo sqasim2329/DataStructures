@@ -51,4 +51,30 @@ public class NMeetingInOneRoom {
 		
 	}
 
+public static int maxMeetings(int start[], int end[], int n) {
+    
+    if(start.length == 0 || end.length==0)
+        return 0;
+        
+    int[][] intervals = new int[start.length][2];
+    for(int i=0;i<start.length;i++){
+        intervals[i][0]=start[i];
+        intervals[i][1]=end[i];
+        }
+        
+        Arrays.sort(intervals,(a,b)->a[1]-b[1]);
+        
+        int existingMeetingEnd = intervals[0][1];
+        int meetings =1;
+        for(int i=1;i<intervals.length;i++){
+            if(existingMeetingEnd < intervals[i][0]){
+                meetings++;
+                existingMeetingEnd = intervals[i][1];
+            }
+                
+        }
+        
+        return meetings;
+    }
+
 

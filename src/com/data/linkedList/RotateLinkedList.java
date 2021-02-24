@@ -34,8 +34,6 @@ public class RotateLinkedList {
 	        reverse(0,n,nums);
 	        reverse(0,k-1,nums);
 	        reverse(k,n,nums);
-	        
-	        
 	    }
 	    
 	    private void reverse(int l, int r, int[] nums){

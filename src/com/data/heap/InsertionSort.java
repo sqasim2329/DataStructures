@@ -8,7 +8,7 @@ public class InsertionSort {
 			int currentVal = arr[i];
 			int j = i;
 			while(j > 0  && arr[j-1] > currentVal) {
-				arr[j] = arr[j-1];\
+				arr[j] = arr[j-1];
 				j--;
 			}
 			arr[j] = currentVal;

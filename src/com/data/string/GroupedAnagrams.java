@@ -43,7 +43,7 @@ public class GroupedAnagrams {
 	    }
 	 
 	 public static void main(String args[]) {
-		 String s[] = {"eat","tea","tan","ate","nat","bat"};
+		 String s[] = {"eat","tea","tan","ate","nat","bat","tt","t"};
 		 System.out.println(groupAnagrams(s));
 	 }
 

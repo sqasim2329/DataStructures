@@ -49,7 +49,7 @@ public class AddTwoNumbers {
 	 public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
 	        
 	        
-	        Stack<ListNode> stk1 = new Stack<>();
+		 Stack<ListNode> stk1 = new Stack<>();
 	        Stack<ListNode> stk2 = new Stack<>();
 	        while(l1!=null){
 	            stk1.push(l1);
@@ -61,8 +61,7 @@ public class AddTwoNumbers {
 	            l2=l2.next;
 	        }
 	        int carry = 0;
-	        ListNode head = new ListNode(-1);
-	        ListNode curr = head;
+	        ListNode curr = null;
 	        
 	        while(!stk1.isEmpty()||!stk2.isEmpty()){
 	            int x = stk1.isEmpty()?0:stk1.pop().val;
@@ -71,21 +70,17 @@ public class AddTwoNumbers {
 	            int val = x+y+carry;
 	            carry = val/10;
 	            ListNode node = new ListNode(val%10);;
-	            if(curr.next==null)
-	            curr.next = node; 
-	            else{
-	                node.next = curr.next;// placing the new node before the next node
-	                curr.next = node;
-	            }
+	            node.next = curr;
+             curr = node;
 	            }
 	        
 	        if(carry > 0){
 	            ListNode node = new ListNode(carry);
-	            node.next = curr.next;
-	            curr.next = node;
+	            node.next = curr;
+	            curr = node;
 	        }
 	        
-	        return head.next;
+	        return curr;
 	    }
 
 }

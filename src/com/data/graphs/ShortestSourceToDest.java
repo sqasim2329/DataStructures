@@ -1,69 +1,77 @@
 package com.data.graphs;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 //https://www.geeksforgeeks.org/shortest-path-in-a-binary-maze/
 //check https://www.geeksforgeeks.org/shortest-path-in-a-binary-maze/--may be not correct
 public class ShortestSourceToDest {
 	
-	static class Point{
-		int a;
-		int b;
-		
-		public Point(int a, int b) {
-			this.a=a;
-			this.b=b;
-		}
-		//wtite equals method in interview
-	}
-	
-	static int fstep=Integer.MAX_VALUE;
-	
-	public void findShortestPath(int [][]arr,Point source, Point dest ) {
-		boolean visited[][] = new boolean[arr.length][arr.length];
-		int step=0;
-		DFSUtil(arr,source,dest,visited,step);
-		System.out.println(fstep);
-	}
-
-
-	private void DFSUtil(int[][] arr, Point source, Point dest, boolean[][] visited, int step) {
-		if(source.a == dest.a && source.b == dest.b)
-			fstep=Math.min(step, fstep);
-		
-		int x=source.a;
-		int y=source.b;
-		visited[x][y]=true;
-		dfshelper(arr,new Point(x+1,y),dest,visited,step);
-		dfshelper(arr,new Point(x-1,y),dest,visited,step);
-		dfshelper(arr,new Point(x,y+1),dest,visited,step);
-		dfshelper(arr,new Point(x,y-1),dest,visited,step);
-		
-	}
-	
-	private boolean isSafe(int i, int j, int [][]arr) {
-		return (i>=0 && i<=arr.length-1 && j>=0 && j<=arr[i].length-1);
-	}
-	
-	private void dfshelper(int[][] arr, Point source, Point dest, boolean[][] visited, int step) {
-		if(isSafe(source.a,source.b,arr) && !visited[source.a][source.b] && arr[source.a][source.b]==1)
-		{	visited[source.a][source.b]=true;
-			DFSUtil(arr,source,dest,visited,step+1);
-			visited[source.a][source.b]=false;;
+	class Point {
+		int row;
+		int col;
+		int dist;
+		public Point(int row,int col ,int dist) {
+			this.row = row;
+			this.col = col;
+			this.dist =dist;
 		}
 	}
 	
+	public int shortestPath(int[][] nums,int []source,int [] dest) {
+		int row = nums.length;
+		int col = nums[0].length;
+		boolean[][]vis = new boolean[row][col];
+		Queue<Point> q = new LinkedList<>();
+		q.add(new Point(source[0],source[1],0));
+		int distance = Integer.MAX_VALUE;
+		while(!q.isEmpty()) {
+			Point src = q.poll();
+			int r =src.row;
+			int c =src.col;
+			vis[r][c] = true;
+			if(r == dest[0] && c ==dest[1]) {
+				return src.dist;
+			}
+			if(isSafe(r+1,c,nums) && !vis[r+1][c] && nums[r+1][c]==1) {
+				q.add(new Point(r+1,c,src.dist+1));
+			}
+			
+			if(isSafe(r-1,c,nums) && !vis[r-1][c] && nums[r-1][c]==1) {
+				q.add(new Point(r-1,c,src.dist+1));
+			}
+			
+			if(isSafe(r,c+1,nums) && !vis[r][c+1] && nums[r][c+1]==1) {
+				q.add(new Point(r,c+1,src.dist+1));
+			}
+			
+			if(isSafe(r,c-1,nums) && !vis[r][c-1] && nums[r][c-1]==1) {
+				q.add(new Point(r,c-1,src.dist+1));
+			}
+		}
+		
+		return -1;
+	}
+	
+	private boolean isSafe(int r, int c, int[][] nums) {
+		
+		return r>=0 && r<nums.length && c>=0 && c<=nums[r].length;
+	}
+
 	public static void main(String args[]) {
-		int arr[][] = {{ 1, 1, 1, 1, 1, 1, 0, 1, 1, 1 }, 
-                { 1, 0, 1, 0, 1, 1, 1, 0, 1, 1 }, 
-                { 1, 1, 1, 0, 1, 1, 0, 1, 0, 1 }, 
-                { 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 }, 
-                { 1, 1, 1, 0, 1, 1, 1, 0, 1, 0 }, 
-                { 1, 0, 1, 1, 1, 1, 0, 1, 0, 0 }, 
-                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 }, 
-                { 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 }, 
+		int arr[][] = {{ 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
+                { 1, 0, 1, 0, 1, 1, 1, 0, 1, 1 },
+                { 1, 1, 1, 0, 1, 1, 0, 1, 0, 1 },
+                { 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 },
+                { 1, 1, 1, 0, 1, 1, 1, 0, 1, 0 },
+                { 1, 0, 1, 1, 1, 1, 0, 1, 0, 0 },
+                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+                { 1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
                 { 1, 1, 0, 0, 0, 0, 1, 0, 0, 1 }}; 
-		 Point source = new Point(0, 0); 
-		 Point dest = new Point(3, 4); 
+		int src[]= {0,0};
+		int dest[]= {3,4};
 		 ShortestSourceToDest g= new ShortestSourceToDest();
-		 g.findShortestPath(arr, source, dest);
+		 System.out.println(g.shortestPath(arr, src, dest));
 	}
 
 }

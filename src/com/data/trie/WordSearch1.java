@@ -1,5 +1,5 @@
 package com.data.trie;
-
+//O(N * 3 ^ L) O(L)
 public class WordSearch1 {
 	
 	class Solution {

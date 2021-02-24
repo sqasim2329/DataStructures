@@ -1,4 +1,8 @@
 package com.data.dynamicProgramming;
+
+import java.util.HashSet;
+import java.util.Set;
+
 //min jumps to reach end of 2d array
 public class JumpGame2 {
 	
@@ -19,6 +23,29 @@ public class JumpGame2 {
         
         
     }
+	//Jump Game 3
+	class Solution {
+	    
+	    public boolean canReach(int[] arr, int start) {
+	        Set<Integer> set = new HashSet<>();
+	        return canReach(arr,start,set);
+	    }
+	    
+	    private boolean canReach(int[] arr, int start, Set<Integer> set){
+	        if(start >= arr.length || start < 0)
+	            return false;
+	        
+	        if(arr[start] == 0)
+	            return true;
+	       
+	        if(!set.contains(start)){
+	            set.add(start);
+	            return canReach(arr,start+arr[start],set)||canReach(arr,start-arr[start],set);
+	        }
+	       
+	        
+	        return false;
+	    }
      
 
 }

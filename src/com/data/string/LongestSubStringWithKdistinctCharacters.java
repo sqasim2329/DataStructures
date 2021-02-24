@@ -8,6 +8,7 @@ public class LongestSubStringWithKdistinctCharacters {
 	private static int longestSubStringWithKCharacterDsitinct(String s,int k) {
 		int index =0;
 		int len =0;
+		int max = 0;
 		Map<Character,Integer> map = new HashMap<>();
 		for(int i=0;i<s.length();i++) {
 			char c = s.charAt(i);
@@ -22,8 +23,9 @@ public class LongestSubStringWithKdistinctCharacters {
 					map.put(s.charAt(index), map.get(s.charAt(index))-1);
 				index++;
 			}
+			max = Math.max(max, i-index+1);
 		}
-		
+		System.out.println(max);
 		return map.size()==k?len:-1;
 	}
 	

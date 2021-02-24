@@ -50,6 +50,7 @@ public class CloneLinkedListWithRandomAndNextPointer {
 		while(curr!=null) {
 			LNode node = new LNode(curr.val);
 			copyMap.put(curr,node);	
+			curr = curr.next;
 		}
 		curr = head;
 		while(curr!=null) {

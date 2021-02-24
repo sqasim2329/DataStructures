@@ -6,8 +6,8 @@ import java.util.Arrays;
 public class LargestNumberWithGivenDigistAndSum {
 	
 	public static void main(String args[]) {
-		int s = 9;
-		int d = 2;
+		int s = 17;
+		int d = 3;
 		
 		int []nums = new int[d];
 		for(int i=0; i<d;i++) {
@@ -17,6 +17,7 @@ public class LargestNumberWithGivenDigistAndSum {
 			}
 			else {
 				nums[i]=s;
+				s=0;
 			}
 		}
 		

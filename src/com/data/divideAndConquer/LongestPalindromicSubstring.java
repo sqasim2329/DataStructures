@@ -29,30 +29,89 @@ public class LongestPalindromicSubstring {
 		return Math.max(max1, z);
 	}
 	
-	private static int dp(String st) {
-	int[][] dp = new int[st.length()][st.length()];
-	for (int col = 0; col < st.length(); col++) {
-		for (int row = st.length()-1; row >= 0; row--) {
-			if (row > col) { 
-				dp[row][col] = 0;
-			} else if (row == col) {
-				dp[row][col] = 1;
-			} else {
-				if (st.charAt(row) == st.charAt(col)) {
-					dp[row][col] = Math.max(2+dp[row + 1][col - 1], Math.max(dp[row][col - 1], dp[row + 1][col]));
-				} else {
-					dp[row][col] = Math.max(dp[row][col - 1], dp[row + 1][col]);
-				}
-			}
-		} 
-	}
-	return dp[0][st.length()-1];
+	
+		public String longestPalindrome(String s) {
+	        int n= s.length();
+	        if(n==0)
+	            return s;
+	        int max = Integer.MIN_VALUE;
+	        int [][]dp = new int[n][n];
+	        for(int i =0;i<n;i++){
+	            dp[i][i]=1;
+	            max = 1;
+	        }
+	        
+	        
+	        int start=0;
+	        for(int i=0;i<n-1;i++){
+	            if(s.charAt(i)==s.charAt(i+1)){
+	                dp[i][i+1]=2;
+	                max = 2;
+	                start=i;
+	            }
+	        }
+	        
+	        for(int k=3;k<=n;k++){
+	            for(int i=0;i<n-k+1;i++){
+	                int j = i+k-1;
+	                if(s.charAt(i)==s.charAt(j) && dp[i+1][j-1] == j-i-1){
+	                    dp[i][j] = 2+dp[i+1][j-1];
+	                }else{
+	                    dp[i][j] = Math.max(dp[i+1][j],dp[i][j-1]);
+	                }
+	                if(max < dp[i][j]){
+	                        max = dp[i][j];
+	                        start =i;
+	                    }
+	            }
+	        }
+	        
+	        int length = dp[0][n-1];
+	        System.out.println(max);
+	        System.out.println(start);
+	        return s.substring(start,start==0?max:start+max);
+	        
+	        
+	       
+	    }
+		
+		public int countSubstrings(String s) {
+	        
+	        int n = s.length();
+	        boolean [][]dp = new boolean[n][n];
+	        int count =0;
+	        for(int i=0;i<n;i++){
+	            dp[i][i]=true;
+	            count++;
+	        }
+	        
+	        for(int i=0;i < n-1;i++){
+	            if(s.charAt(i)==s.charAt(i+1))
+	            {
+	                dp[i][i+1]=true;
+	                count++;
+	            }
+	        }
+	        
+	        for(int k=3;k<=n;k++){
+	            for(int i=0;i<=n-k;i++){
+	                int j=i+k-1;
+	                if(s.charAt(i)==s.charAt(j) && dp[i+1][j-1]){
+	                    dp[i][j]=true;
+	                    count++;
+	                }
+	            }
+	        }
+	        
+	        return count;
+	        
+	    }
 	}
 	
 	
 	
 
-}
+
 
 
 

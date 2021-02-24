@@ -29,3 +29,20 @@ public class LongestPalindromePossible {
 	}
 
 }
+
+/***
+ * 				
+ * 				b - 5
+ * 				a - 3
+ * 				c - 4
+ * 	countOfPairs += 5/2;
+ * 	countOfSingle += 5%2;
+ * 
+ * return countOfPairs*2+countOfSingle>0?1:0;
+ * 
+ * O(1) space and O(n) time
+ * 
+ * 
+ * 
+ * 
+ * ****/

@@ -3,12 +3,15 @@ package com.data.dynamicProgramming;
 public class MaximizeCutSegments {
 	
 	public static void main(String args[]) {
-		int N = 7;
-		int nums[]= {2,5,5};
+		int N = 11;
+		int nums[]= {2,3,5};
+		int dp[]= new int[N+1];
 		
 		System.out.println(backTrack(nums,N));
 		System.out.println(solve(nums,N,0));
-		System.out.println(solve(nums,N));
+		System.out.println(solve(N,nums));
+		
+		System.out.println(dp[N]);
 	}
 
 	private static int backTrack(int[] nums, int n) {
@@ -45,16 +48,10 @@ public class MaximizeCutSegments {
 		
 		
 	}
-	//wrong solution
-	private static int solve(int nums[],int n) {
-		int dp[][] = new int[nums.length+1][n+1];
-		for(int i=0;i<=nums.length;i++)
-			dp[i][0]=Integer.MIN_VALUE;
-		
-		for(int i=0;i<=n;i++)
-			dp[0][i]=Integer.MIN_VALUE;
-		
-		for(int i =1;i<=nums.length;i++) {
+	
+	private static int solve(int n,int[] nums) {
+		int[][] dp = new int[nums.length+1][n+1];
+		for(int i=1;i<=nums.length;i++) {
 			for(int j=1;j<=n;j++) {
 				if(nums[i-1]<=j)
 					dp[i][j]=Math.max(1+dp[i][j-nums[i-1]], dp[i-1][j]);
@@ -62,9 +59,8 @@ public class MaximizeCutSegments {
 					dp[i][j]=dp[i-1][j];
 			}
 		}
-	
-	return dp[nums.length][n];
-		
+		return dp[nums.length][n];
 	}
+
 
 }

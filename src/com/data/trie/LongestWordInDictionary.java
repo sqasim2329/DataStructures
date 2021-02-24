@@ -9,12 +9,6 @@ class Trie{
     int index = -1;
 }
 
-class MaxObj {
-	int maxLength = Integer.MIN_VALUE;
-	int maxEnds = Integer.MIN_VALUE;
-	String word = "x";
-}
-
 public class LongestWordInDictionary {
 
 	public static void main(String args[]) {
@@ -73,3 +67,13 @@ public class LongestWordInDictionary {
         return ans;
     }
 }
+
+/**
+ * 
+ * "w","wo","wor","worl", "world"
+ * 		
+ * 
+ * **/
+
+
+

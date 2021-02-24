@@ -1,6 +1,10 @@
 package com.data.string;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Stack;
 
 // O(n) && O(1) space--O(1) space means this program will always use the same space for calculation no matter the input
 public class RemoveDuplicates {          
@@ -21,3 +25,5 @@ public class RemoveDuplicates {
 	}
 
 }
+//smallest subsequnce of distinct characters
+

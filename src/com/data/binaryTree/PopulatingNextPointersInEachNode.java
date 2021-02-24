@@ -12,18 +12,19 @@ public class PopulatingNextPointersInEachNode {
 	class Solution {
 	    public TreeNode connect(TreeNode root) {
 	        
-	        return dfs(root,null);
+	        dfs(root,null);
+	        return root;
 	        
 	    }
 	    
-	    private TreeNode dfs(TreeNode root,TreeNode next){
+	    private void dfs(TreeNode root, TreeNode next){
 	        if(root == null)
-	            return null;
-	        root.next = next;
+	            return ;
 	        
+	        root.next = next;
 	        dfs(root.left,root.right);
-	        dfs(root.right,root.next == null?null:root.next.left);
-	        return root;
+	        dfs(root.right,next!=null?next.left:next);
+	        return;
 	    }
 	}
 

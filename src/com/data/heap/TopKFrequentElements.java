@@ -30,10 +30,11 @@ public static int[] topKFrequent(int[] nums, int k) {
         
         
         while(k>0){
-        	if(ls.get(max).size()>0) {
-            result.addAll(ls.get(max));
-            k = k-ls.get(max).size();
-        	}
+            int size = ls.get(max).size();
+            for(int i=0;i<size && k > 0 ; i++){
+            result.add(ls.get(max).get(i));
+            k --;
+            }
         	max--;
         }
         

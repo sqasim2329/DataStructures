@@ -9,6 +9,7 @@ public class ZeroOneKnapsack {
 		
 		System.out.println(findMaxProfit(profits,weights,capacity,0));
 	}
+	
 
 	private static int findMaxProfit(int[] profits, int[] weights, int capacity, int i) {
 		// TODO Auto-generated method stub

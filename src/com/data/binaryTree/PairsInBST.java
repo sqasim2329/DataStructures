@@ -68,3 +68,31 @@ public class PairsInBST {
 	}
 
 }
+
+
+
+class Solution {
+    public boolean twoSumBSTs(TreeNode root1, TreeNode root2, int target) {
+        Set<Integer> set = new HashSet<>();
+        dfs(root1,set);
+        return dfsHelper(root2,set,target);
+        
+    }
+    
+    private void dfs(TreeNode root,Set<Integer> set){
+        if(root == null)
+            return ;
+        set.add(root.val);
+        dfs(root.left,set);
+        dfs(root.right,set);
+    }
+    
+    private boolean dfsHelper(TreeNode root,Set<Integer> set,int target){
+        if(root == null)
+            return false;
+        
+        if(set.contains(target-root.val))
+            return true;
+        
+        return dfsHelper(root.left,set,target) || dfsHelper(root.right,set,target);
+    }

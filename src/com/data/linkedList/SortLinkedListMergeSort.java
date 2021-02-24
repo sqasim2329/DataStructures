@@ -21,7 +21,7 @@ public class SortLinkedListMergeSort {
 	    }
 	    
 	    private ListNode mergeSort(ListNode head){
-	        if(head == null || head.next==null)
+	        if(head == null || head.next==null)//divide until 1 node 
 	            return head;
 	        
 	        ListNode mid = getMid(head);

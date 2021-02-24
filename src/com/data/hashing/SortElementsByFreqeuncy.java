@@ -9,42 +9,29 @@ import java.util.Map;
 
 public class SortElementsByFreqeuncy {
 	
+	class Pair implements Comparable<Pair>{
+		
+		int data;
+		int freq;
+		int index;
+		@Override
+		public int compareTo(Pair o) {
+			int comp = Integer.compare(this.freq, o.freq);
+			if(comp == 0)
+				
+		}
+		
+	}
+	
 	public static void main(String args[]) {
 		int a[]={2, 5, 2, 6, -1, 9999999, 5, 8, 8, 8};
-		Map<Integer,Integer> freqMap = new HashMap<>();
-		for(int i=0;i<a.length;i++) {
-			freqMap.put(a[i],freqMap.getOrDefault(a[i],0)+1);
+		Map<Integer,Integer> map = new HashMap<>();
+		for(int n:a) {
+			map.put(n,map.getOrDefault(null, 0)+1);
 		}
-		StringBuffer result = new StringBuffer(); 
-		freqMap.entrySet().stream().sorted(Map.Entry.<Integer,Integer> comparingByValue().reversed())
-		.forEach(e -> { 
-            int key = e.getKey(); 
-            int val = e.getValue(); 
-            for (int i = 0; i < val; i++) { 
-                result.append(key + " "); 
-            } 
-        });
-		System.out.println(result);
 		
 		
-		Map<Character, Integer> counts = new HashMap<>();
-	    for (char c : s.toCharArray()) {
-	        counts.put(c, counts.getOrDefault(c, 0) + 1);
-	    }
-	            
-	    // Make a list of the keys, sorted by frequency.
-	    List<Character> characters = new ArrayList<>(counts.keySet());        
-	    Collections.sort(characters, (a, b) -> counts.get(b) - counts.get(a));
-
-	    // Convert the counts into a string with a sb.
-	    StringBuilder sb = new StringBuilder();
-	    for (char c : characters) {
-	        int copies = counts.get(c);
-	        for (int i = 0; i < copies; i++) {
-	            sb.append(c);
-	        }
-	    }
-	    return sb.toString();
+		
 	}
 	//bucket sort
 	class Solution {

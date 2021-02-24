@@ -11,16 +11,16 @@ public class HeapSort {
 	}
 	
 	public void sort(){
-		for(int i=0;i<arr.length;i++) {
+		
 			HeapByArray hba= new HeapByArray(arr.length);
-			for(i = 0; i< arr.length;i++) {
+			for(int i = 0; i< arr.length;i++) {
 				hba.insertInHeap(arr[i]);
 			}
-			for(i=0; i< arr.length;i++) {
+			for(int i=0; i< arr.length;i++) {
 				arr[i]=hba.extractHeadOfHeap();
 			}
 			
-		}
+		
 				
 	}
 	

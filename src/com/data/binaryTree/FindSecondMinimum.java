@@ -1,24 +1,28 @@
 package com.data.binaryTree;
 
-public class FindSecondMinimum {
-	    int min1;
-	    long ans = Long.MAX_VALUE;
-
-	    public void dfs(TreeNode root) {
-	        if (root != null) {
-	            if (min1 < root.val && root.val < ans) {
-	                ans = root.val;
-	            } else if (min1 == root.val) {
-	                dfs(root.left);
-	                dfs(root.right);
-	            }
-	        }
-	    }
-	    public int findSecondMinimumValue(TreeNode root) {
-	        min1 = root.val;
-	        dfs(root);
-	        return ans < Long.MAX_VALUE ? (int) ans : -1;
-	    }
-	
-
-}
+class Solution {
+    
+    boolean areAllSame = true;
+    int min = Integer.MAX_VALUE;
+    int secMin = Integer.MAX_VALUE;
+    
+    public int findSecondMinimumValue(TreeNode root) {
+     
+        dfs(root);    
+        return areAllSame?-1:secMin;
+    }
+    
+    private void dfs(TreeNode root){
+        if(root == null)
+            return ;
+        
+        if(root.val < min)
+            min =root.val;
+        else if(min!=root.val && min < root.val && secMin >= root.val){
+            areAllSame = false;
+            secMin = root.val;
+        }
+        
+        dfs(root.left);
+        dfs(root.right);
+    }

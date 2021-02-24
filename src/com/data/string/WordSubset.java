@@ -19,12 +19,15 @@ public class WordSubset {
 		
 		for(String str:A) {
 			tmp = getCount(str);
-			int i=0;
-			for(;i<26;i++) {
-				if(tmp[i] < counter[i])
-					break;
+            boolean isValid = true;
+			for(int i=0;i<26;i++) {
+				if(tmp[i] < counter[i]){
+                    isValid = false;
+                    break;
+                }
+					
 			}
-			if(i==26)
+			if(isValid)
 				res.add(str);
 		}
 		

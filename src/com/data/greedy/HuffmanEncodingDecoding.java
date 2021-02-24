@@ -27,8 +27,11 @@ public class HuffmanEncodingDecoding {
 	
 	public static void main(String args[]) {
 		int n = 6; 
-        char[] charArray = { 'a', 'b', 'c', 'd', 'e', 'f' }; 
-        int[] charfreq = { 5, 9, 12, 13, 16, 45 }; 
+//        char[] charArray = { 'a', 'b', 'c', 'd', 'e', 'f' }; 
+//        int[] charfreq = { 5, 9, 12, 13, 16, 45 };
+        
+        char[] charArray = { 'g', 'e', 'k', 's', 'f', 'o','r' }; 
+        int[] charfreq = { 2, 4, 2, 2, 1,1,1 }; 
         encode(charArray,charfreq);
         
 	}

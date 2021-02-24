@@ -35,3 +35,7 @@ public class LongestConsecutiveSubsequence {
 //https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/
 //Solution: put in a set and check if all elem of small araay are preset in the set
 
+private boolean checkIfSubarray(int[] nums,int[] sub) {
+	
+}
+

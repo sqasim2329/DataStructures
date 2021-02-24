@@ -1,6 +1,6 @@
 package com.data.graphs;
-//https://www.geeksforgeeks.org/number-swaps-sort-adjacent-swapping-allowed/--to be done
-//https://www.geeksforgeeks.org/minimum-number-swaps-required-sort-array/	
+//https://www.geeksforgeeks.org/number-swaps-sort-adjacent-swapping-allowed/--MERGE SORT NO OF INVERSION
+//https://www.geeksforgeeks.org/minimum-number-swaps-required-sort-array/	first N elements(1--N)
 public class MinSwapsToSortArray {
 	
 	boolean[] visited;
@@ -39,3 +39,6 @@ public class MinSwapsToSortArray {
 	}
 
 }
+
+
+//2,3,4,1,6,5

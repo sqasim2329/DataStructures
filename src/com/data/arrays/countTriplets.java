@@ -13,7 +13,7 @@ public class countTriplets {
 			freq[arr[i]]++;
 		}
 		int count =0;
-		for(int i=0;i<n;i++) {
+		for(int i=0;i<n-1;i++) {
 			for(int j=i+1;j<n;j++) {
 				if(freq[arr[i]+arr[j]]>0)
 					count++;

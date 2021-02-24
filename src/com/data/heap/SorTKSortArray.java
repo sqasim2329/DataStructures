@@ -27,10 +27,10 @@ public class SorTKSortArray {
 	
 	
 	public static void main(String args[]) {
-		int a[] = {2, 6, 3, 12, 56, 8 };
-		int k=3;
+		int a[] = {10, 9, 8, 7, 4, 70, 60, 50};
+		int k=4;
 		SorTKSortArray s = new SorTKSortArray();
-		a =s.sort(a,3);
+		a =s.sort(a,4);
 		Arrays.stream(a).forEach(System.out::print);
 		
 	}

@@ -2,7 +2,7 @@ package com.data.arrays;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//check the solution fromgfg
 public class SumEqualsSum {
 	
 	static class Obj{

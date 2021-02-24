@@ -11,24 +11,41 @@ import java.util.Set;
 public class IntersectionOfTwoArrays {
 	
 	 public int[] intersection(int[] nums1, int[] nums2) {
+		 Set<Integer> set = new HashSet<>();
+	        List<Integer> ls = new ArrayList<>();
+	      for(int i:nums1)
+	          set.add(i);
 	        
-	        int i =0;
-	        int j =0;
-	        Set<Integer> res = new HashSet<>();
-	        Arrays.sort(nums1);
-	        Arrays.sort(nums2);
-	        while(i<nums1.length && j < nums2.length){
-	            if(nums1[i] < nums2[j])
-	                i++;
-	            else if(nums2[j] < nums1[i])
-	                j++;
-	            else{
-	                res.add(nums1[i]);
-	                i++;
-	                j++;
+	        for(int i:nums2)
+	            if(set.contains(i)){
+	                set.remove(i);
+	                 ls.add(i);   
+	            }
+	        
+	        return ls.stream().mapToInt(i->i).toArray();
+	    }
+	    }
+	 
+	 
+	 public int[] intersection(int[] nums1, int[] nums2) {
+	        
+	        Set<Integer> set = new HashSet<>();
+	        Set<Integer> set2 = new HashSet<>();
+	        for(int x:nums1){
+	            set.add(x);
+	        }
+	        for(int x:nums2){
+	            set2.add(x);
+	        }
+	        List<Integer> ls = new ArrayList<>();
+	        for(int x:set2){
+	            if(set.contains(x)){
+	                ls.add(x);
 	            }
 	        }
-	        return res.stream().mapToInt(k->k).toArray();
+	        
+	        return ls.stream().mapToInt(i->i).toArray();
+	        
 	    }
 	 
 	 

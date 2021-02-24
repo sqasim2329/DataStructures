@@ -19,6 +19,7 @@ public class NumberOfPathsToReachEnd {
 		Map<String,Integer> map = new HashMap<>();
 		System.out.println(
 		findNumberOfPaths(arr,cost,arr.length-1,arr[0].length-1,map));
+		System.out.println(findNumberOfPaths(arr, cost, arr.length-1,arr[0].length-1));
 	}
 
 	private static int findNumberOfPaths(int[][] arr, int cost, int i, int j) {
@@ -30,10 +31,10 @@ public class NumberOfPathsToReachEnd {
 			return cost-arr[i][j]==0?1:0;
 		
 		if(i==0)
-			return findNumberOfPaths(arr,cost-arr[i][j],0,j-1);
+			return findNumberOfPaths(arr,cost-arr[0][j],0,j-1);
 		
 		if(j==0)
-			return findNumberOfPaths(arr,cost-arr[i][j],i-1,0);
+			return findNumberOfPaths(arr,cost-arr[i][0],i-1,0);
 		
 		int x = findNumberOfPaths(arr,cost-arr[i][j],i-1,j);
 		int y = findNumberOfPaths(arr,cost-arr[i][j],i,j-1);

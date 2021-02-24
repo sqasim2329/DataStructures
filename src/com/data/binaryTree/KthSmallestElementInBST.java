@@ -1,33 +1,27 @@
 package com.data.binaryTree;
 
+import java.util.Stack;
+
 public class KthSmallestElementInBST {
 	
-	 class Count{
-	        int c;
-	        int val;
-	    }
-	    public int kthSmallest(TreeNode root, int k) {
-	        Count c = new Count();
-	        c.c=0;
-	        dfs(root,k,c);
-	        return c.val;
-	    }
-	    
-	    private void dfs(TreeNode root,int k,Count c){
-	    	 if(root == null)
-	             return;
-	         
-	         dfs(root.left,k,c);
-	         c.c++;
-	         if(c.c==k && c.val==-1){
-	             c.val = root.val;
-	             return;
-	         }else if(c.val!=-1){//just adding else without if condition will cause the below statemnt to unreachable
-	             return;// return once you have found the val
-	         }
-	         dfs(root.right,k,c);
-	            
-	    }
+	public int kthSmallest(TreeNode root, int k) {
+        Stack<TreeNode> stk = new Stack<>();
+        while(!stk.isEmpty() || root!=null){
+            while(root!=null){
+                stk.push(root);
+                root = root.left;
+            }
+            
+            root = stk.pop();
+            k--;
+            if(k == 0)
+                return root.val;
+            root = root.right;
+        }
+        
+        return -1;
+        
+    }
 
 }
 

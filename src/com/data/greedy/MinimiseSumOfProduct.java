@@ -22,8 +22,12 @@ public class MinimiseSumOfProduct {
 		
 	}
 	
+	int sum2=0;
+	for(int k=0;k<a.length;k++) {
+		sum2+=a[k]*b[a.length-1-k];
+	}
 	System.out.println(sum);
-	
+	System.out.println(sum2);
 	}
 	
 

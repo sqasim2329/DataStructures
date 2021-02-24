@@ -22,7 +22,7 @@ public class CommonEelementsinSortedArrays {
 			}
 			else if(a[i] < b[j])
 				i++;
-			else if(b[j] < a[i])
+			else if(b[j] < c[k])
 				j++;
 			else
 			k++;

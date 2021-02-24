@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MergeIntervalsWIthNewInterval {
 	
-public int[][] insert(int[][] intervals, int[] newInterval) {
+public int[][] insert(int[][]  , int[] newInterval) {
         
         List<int[]> res = new ArrayList<>();
         for(int[] interval:intervals){

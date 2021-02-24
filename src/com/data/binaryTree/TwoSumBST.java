@@ -1,4 +1,4 @@
-package com.data.binaryTree;
+=package com.data.binaryTree;
 
 import java.util.HashSet;
 import java.util.Set;

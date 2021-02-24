@@ -32,6 +32,7 @@ public class DaimondProblem {
 	
 	public static void main(String args[]) {
 		C c=new DaimondProblem().new C();
-		
+		MainClassDcl m = MainClassDcl.getInstance();
+		System.out.println(m);
 	} 
 }

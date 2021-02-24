@@ -43,7 +43,47 @@ public class MergeOverlappingIntervals {
         }
         return res.toArray(new int[res.size()][]);
         
-    }	
+    }
+	
+	public int eraseOverlapIntervals(int[][] intervals) {
+		if (intervals.length == 0) {
+		      return 0;
+		    }
+		    Arrays.sort(intervals,(a,b)-> a[1] - b[1]);
+		    int prevEnd = intervals[0][1];
+		    int count = 1;
+		    for (int i = 1; i < intervals.length; i++) {
+		      if (intervals[i][0] >= prevEnd) {
+		        prevEnd = intervals[i][1];
+		        count++;
+		      }
+		    }
+		    return intervals.length - count;
+		  }    
+    }
+	
+	//Min arrows to burst ballons
+	//I came up with the same solution. 
+	//How did you solve it for input [[-2147483646,-2147483645],[2147483646,2147483647]]? 
+	//use Integer.compare(a[0],b[0]);
+	public int findMinArrowShots(int[][] points) {
+        if(points.length == 0 || points[0].length==0)
+            return 0;
+        Arrays.sort(points,(a,b)->Integer.compare(a[0],b[0]));
+        int prevEnd = points[0][1];
+        int cnt = 1;
+        for(int i=1;i<points.length;i++){
+            if(prevEnd >= points[i][0]){
+                prevEnd = Math.min(points[i][1],prevEnd);
+            }else{
+                prevEnd = points[i][1];
+                cnt++;
+            }
+        }
+        
+        return cnt;       
+        
+    }
 	
 }
 

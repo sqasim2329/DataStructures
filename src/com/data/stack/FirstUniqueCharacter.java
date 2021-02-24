@@ -10,9 +10,9 @@ public int firstUniqChar(String s) {
             freq[c-'a']++;
         }
         
-        for(char c:s.toCharArray()){
-            if(freq[c-'a']==1){
-                return s.indexOf(c);
+        for(int i=0;i<s.length();i++){
+            if(freq[s.charAt(i)-'a']==1){
+                return i;
             }
         }
         return -1;

@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class LargestNumberFormedFromArray {
-	
+//	 Arrays.sort methods operating on primitive arrays don't allow a custom comparator to be specified.
 	public static void main(String args[]) {
 		
 //		int arr[]= {54, 546, 548, 60};

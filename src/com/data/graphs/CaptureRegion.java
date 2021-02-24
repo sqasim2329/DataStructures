@@ -3,7 +3,7 @@ package com.data.graphs;
 import java.util.HashSet;
 import java.util.Set;
 //M*N solution to be done O(N*M)
-public class CaptureRegion {
+public class   captureRegion{
 	    private void solve(char[][] board) {
 	        int m = board.length;
 	        int n = board[0].length;

@@ -61,10 +61,6 @@ public class MeetingRooms2 {
         }
         
         return pq.size();
-        
-        
-        
-        
     }
 
 }

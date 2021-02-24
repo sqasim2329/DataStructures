@@ -3,6 +3,7 @@ package com.data.dynamicProgramming;
 import java.util.Arrays;
 
 //https://leetcode.com/problems/minimum-insertion-steps-to-make-a-string-palindrome/
+// s.length()-lps
 public class MinInsertionsToMakeStringPalindrome {
 	
 	public static void main(String args[]) {

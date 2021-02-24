@@ -3,7 +3,7 @@ package com.data.divideAndConquer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+O(N * 2^N)
 public class Subsets {
 	
 	public List<List<Integer>> subsets(int[] nums) {

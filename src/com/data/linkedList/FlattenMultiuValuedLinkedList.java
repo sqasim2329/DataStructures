@@ -7,28 +7,33 @@ class Node{
 }
 public class FlattenMultiuValuedLinkedList {
 	
-	public Node flatten(Node head) {
-        if(head == null)
-            return head;
-        
-        Node curr = head;
-        while(curr!= null){
-            if(curr.child!=null){
-                Node next = curr.next;
-                next.prev=null;
-                Node child = flatten(curr.child);
-                curr.next = child;
-                child.prev=curr;
-                while(child.next != null)
-                    child = child.next;
-                child.next = next;
-                next.prev= child;
-                curr = next;
-            }
-            curr = curr.next;
-        }
-        return head;
+	class Solution {
+	    public Node flatten(Node head) {
+	        
+	        Node curr = head;
+	        while(curr!=null){
+	            
+	            if(curr.child == null)
+	                curr = curr.next;
+	            else{
+	                Node child = curr.child;
+	                while(child.next!=null)
+	                    child = child.next;
+	                child.next = curr.next;
+	                if(child.next!=null) child.next.prev = child;
+	                curr.next = curr.child;
+	                curr.next.prev = curr;
+	                curr.child = null;
+	            }
+	        }
+	        return head;
+	        
+	    }
+	}
 
     }
 
 }
+
+   
+ 

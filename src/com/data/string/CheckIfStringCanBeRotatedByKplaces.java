@@ -32,5 +32,5 @@ public class CheckIfStringCanBeRotatedByKplaces {
 	}
 
 }
-
+//check if string are rottions of each other: ABACD CDABA--> ABACDABACD  index of CDABA 
 //https://www.geeksforgeeks.org/check-whether-two-strings-are-anagram-of-each-other/--use set or array to store elem

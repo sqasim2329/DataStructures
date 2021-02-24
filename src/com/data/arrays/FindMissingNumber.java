@@ -1,5 +1,5 @@
 package com.data.arrays;
-
+//1 to n
 public class FindMissingNumber {
 	
 	public static void main(String args[]) {
@@ -12,7 +12,7 @@ public class FindMissingNumber {
 			m=m^a[i];
 		}
 		
-		for(int j=2;j<=a.length+1;j++)// including the missing number 
+		for(int j=2;j<=a.length+1;j++)// including the missing number  or max element
 		{
 			n=n^j;
 		}

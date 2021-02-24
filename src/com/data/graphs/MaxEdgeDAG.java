@@ -9,7 +9,7 @@ import java.util.Queue;
 //https://www.geeksforgeeks.org/minimum-cost-graph/?ref=leftbar-rightbar--sat
 //Number of connected components in an undirected graph
 //https://www.geeksforgeeks.org/tarjan-algorithm-find-strongly-connected-components/--sat
-
+//use set<Integer> [] g instead of 
 // use adjacenyc matrix will reduce space
 public class MaxEdgeDAG {
 	int v;
@@ -57,7 +57,7 @@ public class MaxEdgeDAG {
 		}
 		
 		for(int i=0;i<res.size();i++)
-			for(int j=0;j<res.size();j++)
+			for(int j=i+1;j<res.size();j++)
 				if((!ee[i][j] && !ee[i][j])&& i!=j) {
 					ee[i][j]=true;
 					ee[j][i]=true;
@@ -74,6 +74,13 @@ public class MaxEdgeDAG {
 	    g.addEdge(2, 3); 
 	    g.addEdge(3, 1);
 	    g.dagUtil();
+	}
+	
+	private void adjacencylistToMatrix(LinkedList<Integer> g, int[][] gmatrix.int v) {
+		for(int i=0;i<v;i++) {
+			for(int adj:g[i])
+			gmatrix[i][adj]=1;
+		}
 	}
 		
 

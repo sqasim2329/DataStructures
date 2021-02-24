@@ -10,7 +10,7 @@ import java.util.Map;
 public class RelativeSorting {
 	
 	public static void main(String args[]) {
-		int []a = {2, 1, 2, 5, 7, 1, 9, 3, 6, 8, 8};
+		int []a = {2, 1, 2, 5, 7, 1, 9, 3, 6, 8, 8,4};
 		int []b = {2, 1, 8, 3};
 		Map<Integer,Integer> freqMap = new HashMap<>();
 		for(int i=0;i<a.length;i++) {
@@ -39,7 +39,7 @@ public class RelativeSorting {
 			ls.add(e.getKey());
 		}
 		
-		System.out.println(ls.stream().mapToInt(i->i).toArray());
+		ls.stream().mapToInt(i->i).forEach(System.out::print);;
 		}
 
 }

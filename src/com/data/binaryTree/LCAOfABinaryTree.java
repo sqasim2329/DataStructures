@@ -36,7 +36,7 @@ public class LCAOfABinaryTree {
         
         return q;
     }
-	
+	     
 	
 	public TreeNode lowestCommonAncestorRecur(TreeNode root, TreeNode p, TreeNode q) {
 		if(root == null || root == p || root == q)

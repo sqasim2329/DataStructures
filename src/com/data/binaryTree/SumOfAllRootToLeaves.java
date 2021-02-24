@@ -2,32 +2,23 @@ package com.data.binaryTree;
 
 public class SumOfAllRootToLeaves {
 	
-	class Sum{
-        int s;
-    }
-    public int sumNumbers(TreeNode root) {
-        
-        StringBuilder sb = new StringBuilder();
-        Sum s = new Sum();
-        s.s=0;
-        dfs(root,sb,s);
-        return s.s;
-    }
-    
-    
-    private void dfs(TreeNode root,StringBuilder sb,Sum sum){
-        if(root == null)
-            return;
-        
-        sb.append(root.val);
-        if(root.left==null && root.right == null)
-        {
-            sum.s+=Integer.parseInt(sb.toString());
-        }else{
-            dfs(root.left,sb,sum);
-            dfs(root.right,sb,sum);
-        }
-        sb.deleteCharAt(sb.toString().length()-1);       
-    }
+	class Solution {
+	    public int sumNumbers(TreeNode root) {
+	        
+	        
+	        return dfs(root,0);
+	        
+	        
+	    }
+	    
+	    private int dfs(TreeNode root, int curr){
+	        if(root == null)
+	            return 0;
+	        
+	        if(root.left==null && root.right == null) return curr*10+root.val;
+	        return dfs(root.left,curr*10+root.val)+dfs(root.right,curr*10+root.val);
+	        
+	            
+	    }
 
 }

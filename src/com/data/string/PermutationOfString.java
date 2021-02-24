@@ -12,7 +12,7 @@ public class PermutationOfString {
 		int l=0;
 		int r=s.length()-1;
 		
-		 return permutate(s,l,r,0);
+		 return permutate2(s,0);
 		
 	}
 
@@ -39,6 +39,21 @@ public class PermutationOfString {
         charArray[i] = temp; 
         return String.valueOf(charArray);
 		
+	}
+	
+	
+	private static int permutate2(String s, int ind) {
+		if(ind == s.length()) {
+			System.out.println(s);
+			return 1;
+		}
+		int cnt =0;
+		for(int i=ind;i<s.length();i++) {
+			s=swap(s,i,ind);
+			cnt+=permutate2(s,ind+1);
+			s=swap(s,i,ind);
+		}
+		return cnt;
 	}
 
 }
