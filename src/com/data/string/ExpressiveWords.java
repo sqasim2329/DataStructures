@@ -38,7 +38,7 @@ public class ExpressiveWords {
                 for(int i = 0;i<strechy.counts.size();i++){
                     int c1 = strechy.counts.get(i);
                     int c2 = wordRLE.counts.get(i);
-                    if((c1!=c2 && c1<3) || c1<c2){
+                    if((c1!=c2 && c1<3) || c1<c2){//heello hello | helo hello
                         isValid = false;
                         break;
                     }
@@ -72,3 +72,5 @@ We can't extend "helo" to get "heeellooo" because the group "ll" is not size 3 o
  * 
  * 
  * *******/
+///"aaa"
+//["aaaa"]

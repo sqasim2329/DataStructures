@@ -52,5 +52,27 @@ public int numDecodingsRecursive(String s) {
 	 System.out.println(d.numDecodingsRecursive(s));
 	 
  }
+ 
+ 
+ public int numDecodings(String s) {
+     int n= s.length();
+     int[] dp = new int[s.length()+1];
+     int prev=1;
+     int curr=s.charAt(0)=='0'?0:1;
+     for(int i=2;i<=n;i++){
+         int tmp = 0;
+         int oneDigit = s.charAt(i-1)-'0';
+         if(oneDigit!=0)
+             tmp=curr;
+         
+         int twoDigit = Integer.parseInt(s.substring(i-2,i));
+         if(twoDigit>=10 && twoDigit <=26)
+             tmp+=prev;
+         
+         prev = curr;
+         curr = tmp;
+     }
+     return curr;
+ }
 
 }

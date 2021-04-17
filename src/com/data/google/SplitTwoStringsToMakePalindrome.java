@@ -32,3 +32,13 @@ public class SplitTwoStringsToMakePalindrome {
 
 
 //check https://leetcode.com/problems/letter-case-permutation/
+
+//abd   ab // if it is odd we have to worry abt middle part as well
+//
+//fec  ef
+//
+//
+//
+//ula cfd // if it is even then we dont have worry abt middle part as in this example
+//
+//jiz alu

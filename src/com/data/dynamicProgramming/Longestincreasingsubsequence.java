@@ -42,5 +42,34 @@ public class Longestincreasingsubsequence {
 		
 		return Math.max(inc, dec);
 	}
+	
+	
+	class Solution {
+	    public int lengthOfLIS(int[] nums) {
+	        int[] dp = new int[nums.length];// length of non negative numbers in dp gives the LIS.//similar to piles card
+	        int len = 0;
+	        for (int num : nums) {
+	            int i = Arrays.binarySearch(dp, 0, len, num);//where to search,start, end, num to search, if not found put in the negatove of ith index starting from 1
+	            if (i < 0) {
+	                i = -(i + 1);
+	            }
+	            dp[i] = num;
+	            if (i == len) {//create space for new piles so that new non existant element be placed
+	                len++;
+	            }
+	        }
+	        return len;
+	        
+	        
+	    }
+	}
+	// len=4
+	// 10   9   2
+	// 5    3 
+	// 7
+	// 101 18    
+	   
+	    
+	    
 
 }

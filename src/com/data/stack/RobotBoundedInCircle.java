@@ -19,7 +19,7 @@ y += directions[dir][1];
 }
 }
 
-return (x == 0 && y == 0) || dir !=0;
+return (x == 0 && y == 0) || dir !=0;// if the dir is not facing northward it will return back to origin
 }
 
 }

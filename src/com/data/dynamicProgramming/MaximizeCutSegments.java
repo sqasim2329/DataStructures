@@ -1,66 +1,33 @@
 package com.data.dynamicProgramming;
 
+import java.util.Arrays;
+
 public class MaximizeCutSegments {
 	
-	public static void main(String args[]) {
-		int N = 11;
-		int nums[]= {2,3,5};
-		int dp[]= new int[N+1];
-		
-		System.out.println(backTrack(nums,N));
-		System.out.println(solve(nums,N,0));
-		System.out.println(solve(N,nums));
-		
-		System.out.println(dp[N]);
-	}
-
-	private static int backTrack(int[] nums, int n) {
-			if(n < 0)
-				return Integer.MIN_VALUE;
-			
-			if(n==0)
-				return 0;
-			
-			int max = Integer.MIN_VALUE;
-			for(int i=0;i<nums.length;i++) {
-				if(nums[i]<=n)
-					max =  Math.max(max, 1+backTrack(nums,n-nums[i]));
-			}
-			
-			return max;
-	}
+	public int maximizeCuts(int n, int x, int y, int z)
+    {
+       
+       int[] dp = new int[n+1];//dp[state] state--->holds the length dp[state]= number of cuts
+       
+       dp[0]=0;
+       
+       for(int i=1;i<=n;i++){
+           dp[i]=-1;
+           if(i-x>=0)
+                dp[i]=Math.max(dp[i-x],dp[i]);
+            
+            if(i-y>=0)
+                dp[i]=Math.max(dp[i-y],dp[i]);
+            
+            if(i-z>=0)
+                dp[i]=Math.max(dp[i-z],dp[i]);
+            
+            if(dp[i]!=-1)    
+                dp[i]++;//since if you keep updating 1 before all values will increase by 1
+       }
+       
+       return Math.max(dp[n],0);
 	
-	private static int solve(int nums[], int n, int indx) {
-		if(n < 0 || indx>=nums.length)
-			return Integer.MIN_VALUE;
-		
-		
-		if(n == 0)
-			return 0;
-		
-		int x =Integer.MIN_VALUE;
-		int y =Integer.MIN_VALUE;
-		
-		if(nums[indx] <=n)
-			x = 1+solve(nums,n-nums[indx],indx);
-		y = solve(nums,n,indx+1);
-		return Math.max(x, y);
-		
-		
-	}
-	
-	private static int solve(int n,int[] nums) {
-		int[][] dp = new int[nums.length+1][n+1];
-		for(int i=1;i<=nums.length;i++) {
-			for(int j=1;j<=n;j++) {
-				if(nums[i-1]<=j)
-					dp[i][j]=Math.max(1+dp[i][j-nums[i-1]], dp[i-1][j]);
-				else
-					dp[i][j]=dp[i-1][j];
-			}
-		}
-		return dp[nums.length][n];
-	}
 
 
 }

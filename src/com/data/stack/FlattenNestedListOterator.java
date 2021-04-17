@@ -3,31 +3,33 @@ package com.data.stack;
 public class FlattenNestedListOterator {
 	
 	public class NestedIterator implements Iterator<Integer> {
-	    Deque<NestedInteger> stack = new ArrayDeque<>();
+	    
+	    Stack<NestedInteger> stk;
+
 	    public NestedIterator(List<NestedInteger> nestedList) {
+	        stk = new Stack<>();
 	        prepareStack(nestedList);
 	    }
 
 	    @Override
 	    public Integer next() {
-	        if (!hasNext()) {
+	        if(!hasNext())
 	            return null;
-	        }
-	        return stack.pop().getInteger();
+	        
+	       return stk.pop().getInteger();
 	    }
 
 	    @Override
 	    public boolean hasNext() {
-	        while (!stack.isEmpty() && !stack.peek().isInteger()) {
-	            List<NestedInteger> list = stack.pop().getList();
-	            prepareStack(list);
+	        while(!stk.isEmpty() && !stk.peek().isInteger()){
+	            prepareStack(stk.pop().getList());
 	        }
-	        return !stack.isEmpty();
+	       return !stk.isEmpty();
 	    }
 	    
-	    private void prepareStack(List<NestedInteger> nestedList) {
-	        for (int i = nestedList.size() - 1; i >= 0; i--) {
-	            stack.push(nestedList.get(i));
+	    private void prepareStack(List<NestedInteger> nestedList){
+	        for(int i=nestedList.size()-1 ; i>=0;i--){
+	            stk.push(nestedList.get(i));
 	        }
 	    }
 	}

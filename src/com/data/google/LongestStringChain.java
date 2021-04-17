@@ -28,6 +28,8 @@ public class LongestStringChain {
 	}
 
 
-//	"bc,bd,bcd,bde,bdf,bef,bcde,bdef,bcdef"
+//	// a","b","ba","bca","bda","bdca"
+
+//a,1  b,1  ba,2  bca,3  bdca,4
 
 }

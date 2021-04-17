@@ -12,6 +12,7 @@ public class PalindromicPartitioning {
 	 public List<List<String>> partition(String s) {
 	        
 	        List<List<String>> res = new ArrayList<>();
+	        boolean [][]dp = new boolean[s.length()][s.length()];
 	        List<String> ls = new ArrayList<>();
 	        backTrack(res,ls,s,0);
 	        return res;
@@ -26,7 +27,8 @@ public class PalindromicPartitioning {
 	        }
 	        
 	        for(int end=start;end<s.length();end++){
-	            if(isPalindrome(s,start,end)){
+	        	 if(dp[start][end] || isPalindrome(s,start,end)){
+	                    dp[start][end] = true;
 	                ls.add(s.substring(start,end+1));
 	                backTrack(res,ls,s,end+1);
 	                ls.remove(ls.size()-1);

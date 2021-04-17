@@ -9,7 +9,7 @@ public class CutRibbonIntoEqualLengths {
 		
 		int l = 1;
 		int r = max;
-		while(l<r) {
+		while(l<=r) {
 			int mid = l+(r-l)/2;
 			int noOfRibbonWithLenMid = getCount(nums,mid);
 			if(noOfRibbonWithLenMid > k)
@@ -38,3 +38,45 @@ public static void main(String args[]) {
 	
 	}
 }
+//koko and banana
+class Solution {
+    public int minEatingSpeed(int[] piles, int h) {
+        
+        
+        int lo = 1;
+        
+        int hi = piles[0];
+        
+        for(int i=0;i<piles.length;i++){
+            hi =Math.max(hi,piles[i]);
+        }
+        
+        while(lo<=hi){
+            int mid = lo+(hi-lo)/2;
+            int count = getHoursToEatAllBananas(mid,piles);
+            if(count > h)
+                lo=mid+1;
+            else
+                hi=mid-1;
+        }
+        
+        return lo;
+        
+    }
+    
+    private int getHoursToEatAllBananas(int k,int[] piles){
+        int count = 0;
+        
+        for(int i:piles){
+            count+=i/k;
+            if(i%k!=0)count++;
+        }
+        return count;
+    }
+}
+    
+    
+    
+    
+    
+    

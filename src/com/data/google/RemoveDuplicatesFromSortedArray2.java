@@ -1,5 +1,5 @@
 package com.data.google;
-//https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/solution/
+// slack
 public class RemoveDuplicatesFromSortedArray2 {
 	
 	class Solution {

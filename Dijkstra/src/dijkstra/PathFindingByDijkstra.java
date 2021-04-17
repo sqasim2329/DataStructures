@@ -2,7 +2,7 @@ package dijkstra;
 import java.util.*;
 
 import node.*;
-
+// time complexity is O(V2) geenrally but sicne we are using Min Heap it becomes O(ELogV + V)
 public class PathFindingByDijkstra {
 	ArrayList<WeightedNode> nodeList = new ArrayList<WeightedNode>();
 	

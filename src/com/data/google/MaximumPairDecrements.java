@@ -10,7 +10,7 @@ public class MaximumPairDecrements {
 	}
 	
 	private static int solve(int [] arr) {
-		PriorityQueue<Integer> pq = new PriorityQueue<>();
+		PriorityQueue<Integer> pq = new PriorityQueue<>((x,y)->Integer.compare(x, y)*-1);
 		for(int i=0;i<arr.length;i++)
 		pq.add(arr[i]);
 		int ops=0;

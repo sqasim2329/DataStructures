@@ -49,3 +49,70 @@ public class JumpGame2 {
      
 
 }
+	
+	
+	
+	class Solution {
+	    public int jump(int[] nums) {
+	        if(nums[0]==0 || nums.length==1)
+	            return 0;
+	        int farthest = nums[0];
+	        int currEnd = nums[0];
+	        int n = nums.length;
+	        int jumps=1;
+	        for(int i=1;i<n;i++){
+	            if(i == n-1)
+	                return jumps;
+	            farthest = Math.max(farthest,i+nums[i]);
+	            if(currEnd ==i){
+	                jumps++;
+	                currEnd =farthest;
+	            }
+	            
+	        }
+	        return jumps;
+	        
+	    }
+	}
+	
+	///jump game 4
+	class Solution {
+	    public int minJumps(int[] nums) {
+	        
+	        Map<Integer,List<Integer>> graph = new HashMap<>();
+	        for(int i=0;i<nums.length;i++){
+	            graph.putIfAbsent(nums[i],new ArrayList<>());
+	            graph.get(nums[i]).add(i);
+	        }
+	        
+	        Queue<Integer> q = new LinkedList<>();
+	        Set<Integer> visited = new HashSet<>();
+	        q.add(0);
+	        visited.add(0);
+	        int steps = 0;
+	        while(!q.isEmpty()){
+	            int size = q.size();
+	            for(int i=0;i<size;i++){
+	                int indx = q.poll();
+	                if(indx == nums.length-1)
+	                    return steps;
+	                List<Integer> adj = graph.get(nums[indx]);
+	                adj.add(indx+1);
+	                adj.add(indx-1);
+	                for(int j:adj){
+	                    if(j < nums.length && j>=0 && !visited.contains(j)){
+	                        visited.add(j);
+	                        q.add(j);
+	                    }
+	                }
+	                adj.clear();
+	            }
+	            
+	            steps++;
+	        }
+	        
+	        return steps;
+	        
+	    }
+	}
+	    

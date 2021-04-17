@@ -1,5 +1,5 @@
 package com.data.heap;
-
+O(nlogn), average but worst O(n2)
 import java.util.Arrays;
 
 public class QuickSortAlgo {

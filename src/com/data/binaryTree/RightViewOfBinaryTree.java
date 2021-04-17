@@ -28,6 +28,30 @@ public class RightViewOfBinaryTree {
 	        // for left view interchange the above two lines
 	    }
 	}
+	
+	List<Integer> ls = new ArrayList<>();
+    if(root == null)
+        return ls;
+    Queue<TreeNode> q = new LinkedList<>();
+    
+    q.add(root);
+    while(!q.isEmpty()){
+        int size = q.size();
+        int count = 1;
+        for(int i= 0;i<size;i++){
+            TreeNode node = q.poll();
+            if(count == 1 ){
+                ls.add(node.val);
+                count--;
+            }
+            if(node.right!=null)
+                q.add(node.right);
+                
+            if(node.left!=null)
+                q.add(node.left);
+        }
+    }
+    return ls;
 
 }
 

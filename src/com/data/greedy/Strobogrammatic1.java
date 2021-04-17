@@ -66,5 +66,28 @@ public class Strobogrammatic1 {
 	    	System.out.println(findStrobogrammatic(4));
 	    	
 	    }
+	    
+	    
+	    public boolean confusingNumber(int N) {
+	        
+	        Map<Integer,Integer> map = new HashMap<>();
+	        map.put(1,1);
+	        map.put(8,8);
+	        map.put(0,0);
+	        map.put(6,9);
+	        map.put(9,6);
+	        int original =N;
+	        int reverse = 0;
+	        while(N>0){
+	            int tmp =N%10;
+	            if(!map.containsKey(tmp))return false;
+	            reverse = reverse*10+map.get(tmp);
+	            N = N/10;
+	        }
+	        
+	        return reverse!=original;
+	        
+	        
+	    }
 
 }

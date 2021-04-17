@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+//O(N * N!) N choices and N-1 choices for replace
 public class PermuatuinOfArray {
 	
 	public List<List<Integer>> permute(int[] nums) {

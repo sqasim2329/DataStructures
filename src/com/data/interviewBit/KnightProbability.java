@@ -1,5 +1,9 @@
 package com.data.interviewBit;
 //give tim elimit, there is an efficient solution for this suing dp
+//It should be like:
+////to go to (1,2) the probablity is 1/8 (one out of 8 moves from (0, 0)), then from (1,2) there are 2 valid moves out of 8, so it's 1/8 * 2/8;
+//same for (2, 1);
+//so the probabilty is (1/8 * 2/8) + (1/8 * 2/8) = 2 / 64 + 2 / 64 = 1/16 = 0.0625;
 public class KnightProbability {
 	
 	class Solution {

@@ -2,6 +2,7 @@ package com.data.greedy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 
 public class MyCalendar {
 	
@@ -47,5 +48,35 @@ public class MyCalendar {
         }
     }
 
+    
+    
+    class MyCalendarLogn {
+        
+        TreeMap<Integer,Integer> map;
+        
+
+        public MyCalendarLogn() {
+        map = new TreeMap<>();    
+        }
+        
+        public boolean book(int start, int end) {
+            Integer prev = map.floorKey(start);
+            Integer next = map.ceilingKey(start);
+            if((prev == null || map.get(prev)<=start) && (next == null || end <= next)){
+                map.put(start,end);
+                return true;
+            }
+            
+            return false;
+        }
+        
+        public boolean isPresent(int point) {
+        	Integer firstStart = map.floorKey(point);
+        	Integer lastStart = map.ceilingKey(point);
+        	
+        	Integer end = map.get(lastStart);
+        	return point >= firstStart && <= end;
+        }
+    }
 
 }

@@ -16,7 +16,7 @@ public class KthMissingElementinSortedArray {
 	}
 	
 	public static void main(String args[]) {
-		int a[] = {2, 3, 5, 9, 10};
+		int a[] = { , 9, 10};
 		int k=1;
 //		int a[] = {2, 3, 5, 9, 10, 11, 12};       
 //        int k = 4;

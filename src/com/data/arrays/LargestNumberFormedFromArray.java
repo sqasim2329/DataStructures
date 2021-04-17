@@ -28,17 +28,17 @@ public class LargestNumberFormedFromArray {
 		List<Integer> ls = new ArrayList<>();
 		for(int i=0;i<arr.length;i++)
 			ls.add(arr[i]);
-		Collections.sort(ls,new Comparator<Integer>() {
-
-			@Override
-			public int compare(Integer o1, Integer o2) 
-			 {
-				String a=String.valueOf(o1)+String.valueOf(o2);
-				String b=String.valueOf(o2)+String.valueOf(o1);
-				return a.compareTo(b)*-1;
-			}
-		});
-		
+			Collections.sort(ls,new Comparator<Integer>() {
+	
+				@Override
+				public int compare(Integer o1, Integer o2) 
+				 {
+					String a=String.valueOf(o1)+String.valueOf(o2);
+					String b=String.valueOf(o2)+String.valueOf(o1);
+					return a.compareTo(b)*-1;
+				}
+			});
+			
 		ls.stream().forEach(System.out::print);
 		
 	}

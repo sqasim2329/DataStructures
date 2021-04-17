@@ -40,3 +40,68 @@ public class SpiralMatrix {
 	}
 
 }
+
+
+class Solution {
+    public int[][] generateMatrix(int n) {
+        
+        
+        int[][] mat = new int[n][n];
+        int rb = 0;
+        int re = n-1;
+        int cb = 0;
+        int ce = n-1;
+        int value = n*n;
+        int j=1;
+        while(j<=value){
+            for(int i=cb; i <=ce;i++ ){
+                mat[rb][i]=j++;
+            }
+            rb++;
+            
+            for(int i=rb; i <=re;i++ ){
+                mat[i][ce]=j++;
+            }
+            ce--;
+            
+            
+            for(int i=ce; i >=cb;i-- ){
+                mat[re][i]=j++;
+            }
+            re--;
+            
+            
+            for(int i=re;i >=rb;i--){
+                mat[i][cb]=j++;
+            }
+            cb++;
+            
+            
+        }
+        
+        return mat;
+        
+    }
+}
+
+// colBegin=0;
+// colEnd=n-1;
+
+// rowBegin=0;
+// rowEnd=n-1;
+
+
+// rowBegin ->(colBegin to colend)
+// rowBegin++;
+// colEnd -> rowBeign to rowEnd
+// colEnd--;
+// rowEnd-> colEnd to colBegin
+// rowEnd--;
+// colEbgin->rowEnd to rowBegin
+// colBegin++;
+
+
+// 1 2 3
+// 8 9  4
+// 7  6  5
+    

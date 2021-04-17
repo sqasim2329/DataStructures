@@ -15,7 +15,7 @@ public class RemoveHalfNodes {
         else if(root.left == null && root.right != null)
         return root.right;
         else
-        return root;
+        return root;// will cover both null and both not null
     }
 
 }

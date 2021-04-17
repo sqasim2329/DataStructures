@@ -5,7 +5,7 @@ public class VisiblePoints {
 	class Solution {
 	    public int visiblePoints(List<List<Integer>> points, int angle, List<Integer> location) {
 	        
-	         List<Double> angles = new ArrayList<>();
+	        List<Double> angles = new ArrayList<>();
 	        int count = 0;
 	        for (List<Integer> p : points) {
 	            int dx = p.get(0) - location.get(0);

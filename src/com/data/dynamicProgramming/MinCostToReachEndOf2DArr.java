@@ -1,4 +1,4 @@
-package com.data.dynamicProgramming;
+hpackage com.data.dynamicProgramming;
 
 public class MinCostToReachEndOf2DArr {
 	public static void main(String args[]) {

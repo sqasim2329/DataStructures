@@ -6,7 +6,7 @@ public class SortDaigonally {
     public int[][] diagonalSort(int[][] mat) {
         if(mat.length == 0 || mat[0].length==0)
             return mat;
-       int rows = mat.length;
+        int rows = mat.length;
         int cols = mat[0].length;
         for(int i=0;i<rows;i++) sortNUpdate(i,0,mat);
         for(int i=1;i<cols;i++) sortNUpdate(0,i,mat);

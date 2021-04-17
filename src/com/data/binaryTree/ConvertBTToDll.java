@@ -5,28 +5,24 @@ import java.util.Stack;
 public class ConvertBTToDll {
 	
 	
-	Node head;
-    Node bToDLL(Node root)
+	Node bToDLL(Node root)
     {
+	    return dfs(root,null);
 	    
-	    dfs(root);
-	    return head;
     }
     
-    
-    private void dfs(Node root){
-    	if(root== null)
-    		return;
-    	
-    	dfs(root.right);
-    	root.right = head;
-    	if(head!=null)
-    		head.left =root;
- 
-    	head = root;
-    	dfs(root.left);
+    private Node dfs(Node root,Node head){
+        if(root == null)
+        return head;
+        
+        head = dfs(root.right,head);
+        root.right =head;
+        if(head!=null)
+            head.left = root;
+        head = root;    
+        head = dfs(root.left,head);    
+        return head;
     }
-    
     
 
 }

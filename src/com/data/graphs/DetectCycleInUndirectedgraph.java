@@ -26,7 +26,7 @@ public class DetectCycleInUndirectedgraph {
 				}
 			}
 			
-			else if(i!=parent)
+			else if(j!=parent)
 				return true;
 		}
 		return false;

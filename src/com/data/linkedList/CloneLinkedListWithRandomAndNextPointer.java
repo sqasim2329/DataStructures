@@ -20,6 +20,7 @@ public class CloneLinkedListWithRandomAndNextPointer {
 			LNode node = new LNode(curr.val);
 			node.next = curr.next;
 			curr.next = node;	
+			curr = curr.next!=null?curr.next.next:curr.next;
 		}
 		curr = head;
 		LNode copy = curr.next;

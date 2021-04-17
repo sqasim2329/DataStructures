@@ -2,23 +2,34 @@ package com.data.google;
 
 public class MovingAverage {
 	
-	/** Initialize your data structure here. */
-    List<Integer> ls;
-    int k=0;
-    double sum = 0d;
-    public MovingAverage(int size) {
-        k = size;
-        ls = new ArrayList<>();
-    }
-    
-    public double next(int val) {
-            ls.add(val);
-            sum+=val;
-        if(ls.size()>k){
-            sum-= ls.get(0);
-            ls.remove(0);
-        }
-        return sum/ls.size();
-    }
+	class MovingAverage {
+
+	    /** Initialize your data structure here. */
+	    Queue<Integer> q;
+	    int k=0;
+	    double sum = 0d;
+	    public MovingAverage(int size) {
+	        k = size;
+	        q = new LinkedList<>();
+	    }
+	    
+	    public double next(int val) {
+	            q.add(val);
+	            sum+=val;
+	        
+	           if(q.size()>k)
+	            sum-= q.poll();
+	        return sum/q.size();
+	    }
+	}
+
+	/**
+	 * Your MovingAverage object will be instantiated and called as such:
+	 * MovingAverage obj = new MovingAverage(size);
+	 * double param_1 = obj.next(val);
+	 */
+
+
+	    
 
 }

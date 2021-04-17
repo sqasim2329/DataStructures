@@ -23,17 +23,14 @@ public class Checkfrequencycharactersbyoneremoval {
 	}
 
 	private static boolean allSame(int[] freq, String str) {
-		int fr = 0;
-		for(char c:str.toCharArray()) {
-			if(freq[c-'a']>0) {
-				fr = freq[c-'a'];
-				break;
-			}
-		}
-		for(char c:str.toCharArray()) {
-			if(freq[c-'a']>0 && freq[c-'a']!=fr)
+		int fr = -1;
+		for(int i =0;i<26;i++) {
+			if(fr!=-1 && freq[i]!=0 && fr !=freq[i])
 				return false;
+			
+			if(fr == -1 && freq[i]!=0) fr= freq[i];
 		}
+		
 		return true;
 	}
 }

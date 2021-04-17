@@ -37,3 +37,15 @@ public class SubarraysWithKdifferentIntegers {
     }
 
 }
+
+
+//k=2
+//
+//1 2 1 2 3
+//
+//res+=1+2+3+4
+//k=1
+//res+=1+1+1+1+1
+//
+//
+///

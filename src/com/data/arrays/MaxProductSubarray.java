@@ -13,7 +13,6 @@ public class MaxProductSubarray {
 	            minSF = Math.min(curr,Math.min(maxSF*curr,minSF*curr));
 	            maxSF = tmp;
 	            res = Math.max(res,maxSF);
-	            
 	        }
 	        
 	        return res;

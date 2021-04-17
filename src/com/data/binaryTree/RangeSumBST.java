@@ -8,16 +8,15 @@ public class RangeSumBST {
     }
     
     private int dfs(TreeNode root, int low, int high){
-        if(root == null )
+    	if(root == null)
             return 0;
-        int ans = 0;
-        if(root.val >=low && root.val <=high)
-            ans+=root.val;
-        if(root.val > low)
-        	ans+=dfs(root.left,low,high);
-        if(root.val < high)
-        	ans+=dfs(root.right,low,high);
-        return ans;
+        int sum = 0;
+        sum+=dfs(root.left,low,high);
+        sum+=dfs(root.right,low,high);
+        if(root.val>=low && root.val <=high){
+            sum+=root.val;
+        }
+        return sum;
     }
     
     public int rangeSumBST(TreeNode root, int low, int high) {  

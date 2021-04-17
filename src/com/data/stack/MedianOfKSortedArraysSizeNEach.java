@@ -4,9 +4,9 @@ import java.util.PriorityQueue;
 
 public class MedianOfKSortedArraysSizeNEach {
 	
-	public class Solution {
-		  public int median(int[][] input) {
-		    if(input == 0 || input.length == 0) return 0;
+	
+		  public static int median(int[][] input) {
+		    if(input.length == 0 || input[0].length == 0) return 0;
 		     PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a,b) -> b - a);
 		     PriorityQueue<Integer> minHeap = new PriorityQueue<>((a,b) -> a - b);
 		     int totCount = 0;
@@ -31,10 +31,10 @@ public class MedianOfKSortedArraysSizeNEach {
 		  }  
 
 		  public static void main(String[] args) {
-		    Solution s = new Solution();
-		    System.out.println(s.median(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}}));
-		    System.out.println(s.median(new int[][]{{10, 100, 1000}, {5, 55, 555}, {23, 2323, 232323}}));
+		    
+		    System.out.println(median(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}}));
+		    System.out.println(median(new int[][]{{10, 100, 1000}, {5, 55, 555}, {23, 2323, 232323}}));
 		  }
-		}
+		
 
 }

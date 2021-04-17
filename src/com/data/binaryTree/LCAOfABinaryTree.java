@@ -13,6 +13,7 @@ public class LCAOfABinaryTree {
         Map<TreeNode,TreeNode> parent = new HashMap<>();
         stk.push(root);
         while(!parent.containsKey(p) || !parent.containsKey(q)){
+        	// add if(stk.isEmpty()) return null; for lca 2 with non existence nodes
             TreeNode current = stk.pop();
             if(current.left != null){
                 parent.put(current.left,current);
@@ -35,6 +36,19 @@ public class LCAOfABinaryTree {
             q = parent.get(q);
         
         return q;
+    }
+	//same as intersection with parent as next
+public Node lowestCommonAncestor(Node p, Node q) {
+        
+        Node a = p;
+        Node b = q;
+        
+        while(a!=b){
+            a = a ==null?q:a.parent;
+            b = b ==null?p:b.parent;
+        }
+        return a;
+        
     }
 	     
 	

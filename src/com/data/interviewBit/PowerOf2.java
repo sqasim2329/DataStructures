@@ -10,6 +10,8 @@ public class PowerOf2 {
          
     }
 	
+	//Math.ceil(Math.log(n)/Math.log(2))==Math.floor(Math.log(n)/Math.log(2));
+	
 //	0100 & 0011
 //	00000
 

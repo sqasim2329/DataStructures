@@ -11,7 +11,7 @@ public class LongestCommonSubstringOftwoString {
 
 	private static int lcs(String s1, String s2, int i, int j) {
 		if(i>s1.length()-1 || j>s2.length()-1)
-		return 0;
+			return 0;
 		
 		int x=0;
 		while((                              ))  {

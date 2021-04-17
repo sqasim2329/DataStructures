@@ -1,5 +1,7 @@
 package com.data.google;
 
+import java.util.Arrays;
+
 public class CarFleet {
 	
 	class Car implements Comparable<Car>{
@@ -23,16 +25,16 @@ public class CarFleet {
         }
         
         Arrays.sort(cars,(a,b)-> Integer.compare(a.pos,b.pos));
-        int t = position.length;
+        int t = position.length-1;
         int ans =0;
-        while(--t > 0){
-            if(cars[t].time< cars[t-1].time)ans++;
+        while(t > 0){
+            if(cars[t].time< cars[t-1].time)ans++;//time taken by car t is less than time taken by car t-1
             else
                 cars[t-1]=cars[t];
+            t--;
         }
         
-        return ans+(t == 0?1:0);
-        
+        return ans+(t == 0?1:0); cars[t-1]=cars[t];
        
     }
 

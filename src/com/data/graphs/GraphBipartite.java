@@ -43,5 +43,43 @@ public class GraphBipartite {
 	        
 	        return true;
 	    }
+	    
+	    
+	    public boolean possibleBipartition(int N, int[][] dislikes) {
+	        
+	        LinkedList<Integer>[] g = new LinkedList[N+1];
+	        for(int i=0;i<=N;i++){
+	            g[i]= new LinkedList<>();
+	        }
+	        
+	        for(int[] people:dislikes){
+	            g[people[0]].add(people[1]);
+	            g[people[1]].add(people[0]);
+	        }
+	    
+	        int[] color = new int[N+1];
+	        Arrays.fill(color,-1);
+	        for(int i=1;i<=N;i++){
+	         if( color[i]==-1){
+	             if(!dfs(i,color,0,g))
+	             return false;
+	            }
+	        }
+	        
+	        return true;
+	    }
+	    
+	    private boolean dfs(int s, int[] color,int col,LinkedList<Integer>[] g){
+	        color[s]=col;
+	        for(int adj:g[s]){
+	            if(color[adj]==-1){
+	                if(!dfs(adj,color,col^1,g))
+	                    return false;
+	            }else if(color[s]==color[adj]){
+	                return false;
+	            }
+	        }
+	        return true;
+	    }
 	
 }

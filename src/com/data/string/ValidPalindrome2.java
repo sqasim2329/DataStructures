@@ -19,7 +19,7 @@ public class ValidPalindrome2 {
 	    
 	    
 	    private static boolean isPalindrome(int i, int j, String s){
-	        while(i<=j){
+	        while(i<=j){ 
 	            if(s.charAt(i)!=s.charAt(j))
 	                return false;
 	            else{

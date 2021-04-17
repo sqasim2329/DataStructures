@@ -1,4 +1,4 @@
-package com.data.binaryTree;
+		qpackage com.data.binaryTree;
 
 public class InvertBinaryTree {
 	

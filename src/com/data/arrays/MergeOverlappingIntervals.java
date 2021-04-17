@@ -30,7 +30,7 @@ public class MergeOverlappingIntervals {
 		int nums[][]= {{6,8},{5,7},{1,9},{2,4},{10,11}};
 		merge(nums);
 	}
-
+///[1,4][0,4]
 	public static int[][] merge(int[][] intervals) {
         Arrays.sort(intervals,(a,b)->Integer.compare(a[0],b[0]));
         

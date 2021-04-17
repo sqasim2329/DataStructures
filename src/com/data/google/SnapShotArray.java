@@ -18,7 +18,7 @@ public class SnapShotArray {
 	        arr = new Snapshot[length];
 	        for(int i=0;i<length;i++){
 	            arr[i] = new Snapshot();
-	            arr[i].snapMap.put(0,0);
+	            arr[i].snapMap.put(0,0);// data is such that we can be asked to get snapId that doesnt exists
 	        }
 	    }
 	    

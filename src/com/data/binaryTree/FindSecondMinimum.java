@@ -1,28 +1,35 @@
 package com.data.binaryTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Solution {
     
-    boolean areAllSame = true;
-    int min = Integer.MAX_VALUE;
-    int secMin = Integer.MAX_VALUE;
     
     public int findSecondMinimumValue(TreeNode root) {
      
-        dfs(root);    
-        return areAllSame?-1:secMin;
-    }
-    
-    private void dfs(TreeNode root){
-        if(root == null)
-            return ;
-        
-        if(root.val < min)
-            min =root.val;
-        else if(min!=root.val && min < root.val && secMin >= root.val){
-            areAllSame = false;
-            secMin = root.val;
+    	Queue<TreeNode> q = new LinkedList<>();
+        int min = root.val;
+        int secMin = root.val;
+        q.add(root);
+        while(!q.isEmpty()){
+            
+            TreeNode node = q.poll();
+            if((node.val > min && min==secMin)||(node.val < secMin && min!=node.val)){
+                secMin = node.val;
+            }
+            
+            if(node.left!=null)
+                q.add(node.left);
+            
+            if(node.right!=null)
+                q.add(node.right);
+            
         }
         
-        dfs(root.left);
-        dfs(root.right);
+        return min==secMin?-1:secMin;
     }
+    
+ 
+    
+}
