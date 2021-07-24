@@ -21,7 +21,7 @@ public class NumberIslands {
 		
 		System.out.println(count);
 	}
-
+]]]]]]]]]]]]]]]]]]]]]]]]]]]
 	private void formIslands(int i, int j,int[][] arr) {
 		visited[i][j]=true;
 		populateVisited(i-1, j, arr);

@@ -27,7 +27,4 @@ public class MaximizeCutSegments {
        }
        
        return Math.max(dp[n],0);
-	
-
-
 }

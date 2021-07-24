@@ -21,7 +21,6 @@ public class LongestRepeatingCharacterReplaceMent {
             maxSize = Math.max(maxSize,r-l);
             
         }
-        
         return maxSize;
         
     }

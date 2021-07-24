@@ -27,6 +27,29 @@ public class LongestPalindromePossible {
 		
 		
 	}
+	
+	char[] ch = s.toCharArray();
+    Arrays.sort(ch);
+    s = new String(ch);
+    int countSingle = 0;
+    int counPairs = 0;
+    int count = 1;
+    char c = s.charAt(0);
+    for(int i=1;i<s.length();i++){
+        if(s.charAt(i)==c){
+            count++;
+        }else{
+            countSingle+= count%2;
+            counPairs+= count/2;
+            count =1;
+            c = s.charAt(i);
+        }
+    }
+    
+    countSingle+= count%2;
+    counPairs+= count/2;
+    return counPairs*2+(countSingle>0?1:0);
+    
 
 }
 

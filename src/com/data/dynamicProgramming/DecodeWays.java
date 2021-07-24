@@ -47,7 +47,7 @@ public int numDecodingsRecursive(String s) {
  }
  
  public static void main(String args[]) {
-	 String s = "111111111111111111111111111111111111111111111";
+	 String s = "223";
 	 DecodeWays d = new DecodeWays();
 	 System.out.println(d.numDecodingsRecursive(s));
 	 

@@ -21,7 +21,7 @@ public class PathFindingByBellmanFord {
 		sourceNode.setDistance(0); // set source distance to zero
 		
 		for (int i = 1; i < nodeList.size(); i++) { // repeat n-1 times
-			for (WeightedNode presentNode : nodeList) { 8// for each Vertex
+			for (WeightedNode presentNode : nodeList) {// for each Vertex
 				for (WeightedNode neighbor : presentNode.getNeighbors()) { // for each Neighbor
 					// if distance of neighbor is greater than tentative new path then
 					// update distance of neighbor with new parent as presentNode

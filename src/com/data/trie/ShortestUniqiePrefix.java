@@ -1,4 +1,4 @@
-package com.data.interviewBit;
+package com.data.trie;
 
 import java.util.HashMap;
 import java.util.Map;

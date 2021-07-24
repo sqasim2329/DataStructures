@@ -8,6 +8,21 @@ package com.data.interviewBit;
 //In "Split Array Largest sum" when we overshoot the target, we will include the number in the next sum, so we can ensure all numbers are less than target - binary search does the rest of the magic
 //https://leetcode.com/problems/koko-eating-bananas/
 //	https://leetcode.com/problems/minimize-max-distance-to-gas-station/
+//lo = min
+//hi = sum
+//Allocate pages  
+//maximizeSweetness
+
+//lo = max
+//hi = sum
+//split array
+//painters parttion
+//ship within d days
+
+//lo = 1
+//hi = max
+//cut ribbon equal lengths
+//koko
 public class AllocateMinimumNumberOfPages {
 	
 	public static int allocatePages(int m, int [] pages) {

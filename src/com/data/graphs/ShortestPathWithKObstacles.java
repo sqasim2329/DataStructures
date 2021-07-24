@@ -1,5 +1,5 @@
 package com.data.graphs;
-//working for 42 test cases failing for 4 more need to check later.
+//working for 44 test cases failing for 2 more need to check later.
 public class ShortestPathWithKObstacles {
 	
 	class Solution {
@@ -13,7 +13,6 @@ public class ShortestPathWithKObstacles {
 	        Queue<int[]> q = new LinkedList<>();
 	        int shortestPath = 0;
 	        q.add(new int[]{0,0,k});
-	        vis[0][0]=true;
 	        while(!q.isEmpty()){
 	            int size = q.size();
 	            for(int j=0;j<size;j++){
@@ -24,9 +23,12 @@ public class ShortestPathWithKObstacles {
 	                    int nx = pos[0]+dir[i][0];
 	                    int ny = pos[1]+dir[i][1];
 	                    
-	                    if(isSafe(nx,ny,grid) && (grid[nx][ny]==0 || (grid[nx][ny]==1 && pos[2]>0))&& !vis[nx][ny]){
+	                    if(isSafe(nx,ny,grid)&& !vis[nx][ny]){
 	                        vis[nx][ny]=true;
-	                        q.add(new int[]{nx,ny,pos[2]-1});
+	                        if(grid[nx][ny]==0 )
+	                            q.add(new int[]{nx,ny,pos[2]});
+	                         else if(grid[nx][ny]==1 && pos[2]>0)
+	                            q.add(new int[]{nx,ny,pos[2]-1});
 	                    }
 	                }     
 	            }
@@ -39,6 +41,8 @@ public class ShortestPathWithKObstacles {
 	        return r>=0 && r< grid.length && c>=0 && c<grid[0].length;
 	    }
 	    }
+
+
 
 }
 
