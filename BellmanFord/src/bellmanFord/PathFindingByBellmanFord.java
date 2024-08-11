@@ -1,7 +1,7 @@
 package bellmanFord;
 import java.util.ArrayList;
 import node.WeightedNode;
-
+// for a complete graph bellman ford takes O(n^3) and in avg cases O(n^2)
 public class PathFindingByBellmanFord {
 
 	//Will store all the vertices
